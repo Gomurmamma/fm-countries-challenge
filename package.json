@@ -1,0 +1,28 @@
+{
+  "name": "fm-countries-challenge",
+  "version": "1.0.0",
+  "description": "Solution for the FrontendMentors.io Rest Countries API with Theme Switch challenge",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gomurmamma/fm-countries-challenge.git"
+  },
+  "author": "Donald Antonio Young",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gomurmamma/fm-countries-challenge/issues"
+  },
+  "homepage": "https://github.com/Gomurmamma/fm-countries-challenge#readme",
+  "dependencies": {
+    "next": "^13.0.6"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}
