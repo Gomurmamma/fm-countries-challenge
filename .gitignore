@@ -118,3 +118,6 @@ dist
 
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
+
+# This file ensures Next.js types picked up by compiler & protects it
+next-env.d.ts
