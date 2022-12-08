@@ -2,7 +2,7 @@ import React from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 
-import "../styles/global.scss";
+import "../styles/Global.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
