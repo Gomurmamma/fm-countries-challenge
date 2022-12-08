@@ -2,10 +2,12 @@
 
 :root {
   // COLOR VARIABLES
+  --background-light-mode: hsl(0, 0%, 98%);
   --background-dark-mode: hsl(207, 26%, 17%);
-  --element-dark-mode: hsl(209, 23%, 22%);
+  --element-dark-mode: hsl(209, 23%, 22%); // Dark mode input
   --text-light-mode: hsl(200, 15%, 8%);
-  --color-white: hsl(0, 0%, 100%);
+  --input-light-mode: hsl(0, 0%, 98%);
+  --color-white: hsl(0, 0%, 100%); // Dark mode Text & light mode Elements
   // FONT VARIABLES
   --font-primary: "Nunito Sans", sans-serif;
 }
@@ -23,4 +25,29 @@ html {
   font-size: 62.5%; // 1 rem: 10px | 10px/16px = 62.5%
   font-family: var(--font-primary);
   font-weight: 300;
+}
+
+body,
+body[data-theme="light"] {
+  --color-text-primary: var(--text-light-mode);
+  --color-bg-primary: var(--background-light-mode);
+  --color-element-primary: var(--color-white);
+}
+
+body[data-theme="dark"] {
+  --color-text-primary: var(--color-white);
+  --color-bg-primary: var(--background-dark-mode);
+  --color-element-primary: var(--element-dark-mode);
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background 0.25s ease-in-out;
+}
+
+#__next {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 }
