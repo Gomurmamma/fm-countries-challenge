@@ -121,3 +121,6 @@ dist
 
 # This file ensures Next.js types picked up by compiler & protects it
 next-env.d.ts
+
+# node modules
+node_modules

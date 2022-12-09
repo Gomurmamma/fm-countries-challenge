@@ -1,0 +1,20 @@
+.togglebutton {
+  transition: 0.25s ease-in-out;
+  background-color: var(--color-element-primary);
+
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: var(--color-text-primary);
+
+  &:focus {
+    outline-offset: 5px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:hover {
+    box-shadow: 0 0 5px 2px var(--color-element-primary);
+  }
+}
