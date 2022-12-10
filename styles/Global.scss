@@ -48,6 +48,6 @@ body {
 
 #__next {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: min-max(mincontent, 1fr), repeat(2, mincontent);
+  grid-template-columns: min-content, repeat(6, 1fr), min-content;
 }

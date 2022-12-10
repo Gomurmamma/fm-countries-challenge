@@ -1,8 +1,12 @@
 import React from "react";
 import style from "./SearchResults.module.scss";
 
-const SearchResults: React.FC = () => {
-  return <section className={style.SearchResults}></section>;
+type ResultsProps = {
+  result: object[];
+};
+
+const SearchResults: React.FC = ({ results }: ResultsProps) => {
+  return <section className={style.SearchResults}>{results}</section>;
 };
 
 export default SearchResults;

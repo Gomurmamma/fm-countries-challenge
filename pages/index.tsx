@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header/Header.component";
 import SearchFeatures from "../components/SearchFeatures/SearchFeatures.component";
-import SearchResults from "../components/SearchResults/SearchResults.component";
 
 import dynamic from "next/dynamic";
 
@@ -19,7 +18,6 @@ const Homepage: React.FunctionComponent = () => {
         <ToggleButton />
       </Header>
       <SearchFeatures />
-      <SearchResults />
     </>
   );
 };
