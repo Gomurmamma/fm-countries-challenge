@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import style from "./SearchFeatures.module.scss";
@@ -6,16 +6,29 @@ import { RxMagnifyingGlass } from "react-icons/rx";
 import SearchResults from "../SearchResults/SearchResults.component";
 
 const SearchFeatures: React.FC = () => {
-  const [country, setCountry] = useState("");
+  // Value from Search input
+  const [searchField, setSearchField] = useState("");
+  // Unfiltered Country Data from API
   const [countryResults, setCountryResults] = useState([]);
-  const [region, setRegion] = useState("");
+  // Region filter
+  const [regionFilter, setRegionFilter] = useState("");
+  // Filtered country data
+  const [filteredCountries, setFilteredCountries] = useState([]);
 
+  // Data request
   const countrySearch = async (e) => {
     e.preventDefault();
 
     try {
+      // If no value in Search, return all countries on Enter
+      if (!searchField) {
+        const response = await axios.get(`https://restcountries.com/v3.1/all`);
+        setCountryResults(response.data);
+      }
+
+      // Search contains value to query
       const response = await axios.get(
-        `https://restcountries.com/v3.1/name/${country}`
+        `https://restcountries.com/v3.1/name/${searchField}`
       );
       setCountryResults(response.data);
       console.log(response.data);
@@ -24,17 +37,43 @@ const SearchFeatures: React.FC = () => {
     }
   };
 
-  const countryFilter = () => {
-    if (region === "") {
-      const filteredCountryResults = countryResults;
-      console.log(filteredCountryResults);
-    } else if (region !== "") {
-      const filteredCountryResults = countryResults.filter(
-        (country) => country.region === `${region}`
-      );
-      console.log(filteredCountryResults);
+  // Filter countryResults against chosen regionFilter
+  const filterByRegion = (countryResults) => {
+    if (!regionFilter || regionFilter === "") {
+      return countryResults;
     }
+
+    const filteredCountries = countryResults.filter(
+      (country) => country.region === regionFilter
+    );
+    return filteredCountries;
   };
+
+  // Region 'Select' event handler
+  const handleRegionChange = (event) => {
+    setRegionFilter(event.target.value);
+  };
+
+  // Request data to display on first visit
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://restcountries.com/v3.1/all`);
+        setCountryResults(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Update display if new Search request or Filter applied
+  useEffect(() => {
+    let filteredData = filterByRegion(countryResults);
+    setFilteredCountries(filteredData);
+  }, [countryResults, regionFilter]);
 
   return (
     <section className={style.SearchFeatures}>
@@ -42,7 +81,7 @@ const SearchFeatures: React.FC = () => {
         <div className={style.SearchInput__inputContainer}>
           <button
             type="submit"
-            onClick={countrySearch}
+            onChange={countrySearch}
             className={style.SearchInput__button}
           >
             <RxMagnifyingGlass className={style.SearchInput__magnifyingGlass} />
@@ -54,27 +93,24 @@ const SearchFeatures: React.FC = () => {
             placeholder="Search for a country..."
             title="Search for a country"
             className={style.SearchInput__input}
-            value={country}
+            value={searchField}
             onChange={(e) => {
-              setCountry(e.target.value);
-              console.log(country);
+              setSearchField(e.target.value);
             }}
           ></input>
         </div>
         <select
           id="region"
           name="region"
-          value={region}
-          onChange={(e) => {
-            console.log(e.target.value);
-            setRegion(e.target.value);
-            countryFilter();
-          }}
+          value={regionFilter}
+          onChange={handleRegionChange}
         >
           <option value="">
-            {region === "" ? "Filter by Region" : `Current Region: ${region}`}
+            {regionFilter === ""
+              ? "Filter by Region"
+              : `Current Region: ${regionFilter}`}
           </option>
-          {region !== "" ? <option value="">No filter</option> : <></>}
+          {regionFilter !== "" ? <option value="">No filter</option> : <></>}
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
           <option value="Asia">Asia</option>
@@ -82,7 +118,7 @@ const SearchFeatures: React.FC = () => {
           <option value="Oceania">Oceania</option>
         </select>
       </form>
-      <SearchResults />
+      <SearchResults countries={filteredCountries} />
     </section>
   );
 };
