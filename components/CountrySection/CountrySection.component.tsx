@@ -8,7 +8,7 @@ const CountrySection: React.FC = () => {
     population: 2000,
     region: "Africa",
     capital: "Big City",
-    flag: "heres the flag",
+    flag: "https://flagcdn.com/al.svg",
     nativeName: "Chad",
     subregion: "Horn of Africa",
     topLevelDomain: [".be"],

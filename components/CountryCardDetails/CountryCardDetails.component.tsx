@@ -54,7 +54,14 @@ function CountryCardDetails({ country }: CardProps) {
   return (
     <>
       <figure className={style.CountryCardDetails}>
-        <div></div>
+        <div className={style.CountryCardDetails__imageFrame}>
+          <Image
+            className={style.CountryCardDetails__image}
+            alt={`Flag of ${country.name}`}
+            src={country.flag}
+            fill={true}
+          />
+        </div>
         <figcaption>
           <h2>{country.name}</h2>
           <ul>
