@@ -7,15 +7,11 @@ interface CountryListProps {
 }
 
 interface Country {
-  name: {
-    common: string;
-  };
+  name: string;
   population: number;
   region: string;
-  capital: string[];
-  flags: {
-    svg: string;
-  };
+  capital: string;
+  flag: string;
 }
 
 function SearchResults(countries: CountryListProps) {

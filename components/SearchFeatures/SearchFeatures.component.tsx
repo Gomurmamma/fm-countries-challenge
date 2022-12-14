@@ -22,13 +22,13 @@ const SearchFeatures: React.FC = () => {
     try {
       // If no value in Search, return all countries on Enter
       if (!searchField) {
-        const response = await axios.get(`https://restcountries.com/v3.1/all`);
+        const response = await axios.get(`https://restcountries.com/v2/all`);
         setCountryResults(response.data);
       }
 
       // Search contains value to query
       const response = await axios.get(
-        `https://restcountries.com/v3.1/name/${searchField}`
+        `https://restcountries.com/v2/name/${searchField}`
       );
       setCountryResults(response.data);
       console.log(response.data);
@@ -58,7 +58,7 @@ const SearchFeatures: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://restcountries.com/v3.1/all`);
+        const response = await axios.get(`https://restcountries.com/v2/all`);
         setCountryResults(response.data);
         console.log(response.data);
       } catch (error) {
