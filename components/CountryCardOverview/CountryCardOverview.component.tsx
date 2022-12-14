@@ -16,12 +16,7 @@ type CardProps = {
 function CountryCardOverview({ country }: CardProps) {
   return (
     <figure className={style.CountryCardOverview}>
-      <Link
-        href={{
-          pathname: "/countries/[country]",
-          query: { country: `${country.name}` },
-        }}
-      >
+      <Link href={`/countries/${country.name.replace(/\s+/g, "")}`}>
         <div className={style.CountryCardOverview__imageFrame}>
           <Image
             className={style.CountryCardOverview__image}

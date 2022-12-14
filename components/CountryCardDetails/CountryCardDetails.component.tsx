@@ -2,6 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import style from "./CountryCardDetails.module.scss";
+import LinkButton from "../LinkButton/LinkButton.component";
+
+type ButtonProps = {
+  buttonprops: {
+    title: string;
+  };
+};
 
 type currencyObj = {
   currency: {
@@ -37,20 +44,24 @@ function borderCountries(borders: string[]) {
 
   // borders array reduced to first 3 items into borderCountries[]
   for (let i = 0; i < 3; i++) {
-    borderCountries[i] = borders[i];
+    borderCountries.push(borders[i]);
   }
 
   // map borders array to li's
   return (
     <ul>
       {borderCountries.map((country, i) => (
-        <li key={i}>{country}</li>
+        <li key={i}>
+          <Link href={`/countries/${country.replace(/\s+/g, "")}`}>
+            <LinkButton buttonprops={{ title: country }} />
+          </Link>
+        </li>
       ))}
     </ul>
   );
 }
 
-function CountryCardDetails({ country }: CardProps) {
+function CountryCardDetails({ country }: CardProps): JSX.Element {
   return (
     <>
       <figure className={style.CountryCardDetails}>
