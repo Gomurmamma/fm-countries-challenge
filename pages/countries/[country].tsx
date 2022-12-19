@@ -131,7 +131,7 @@ function Country({ countryData }) {
 
 //TODO
 // split at the first space !!!!!!!!!
-// if there's no capital then don't render the list item
+// if there's no capital then don't render the list item - Overview
 
 export async function getServerSideProps(context) {
   const id = context.params.country;
@@ -157,7 +157,7 @@ export async function getServerSideProps(context) {
     console.log("here's the url:", url);
 
     let country_res = await axios.get(
-      `https://restcountries.com/v2/name/${id}`
+      `https://restcountries.com/v2/name/${id.match(/(?<=^)\S[a-z]*/g)}`
     );
 
     console.log("the country response v2:", country_res.data[0]);
@@ -176,7 +176,7 @@ export async function getServerSideProps(context) {
         languages: country_res.data[0].languages,
         borders: country_res.data[0].borders
           ? country_res.data[0].borders
-          : undefined,
+          : null,
       },
     };
 

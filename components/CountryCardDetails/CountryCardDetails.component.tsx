@@ -43,13 +43,22 @@ function borderCountries(borders: any[]) {
     borderCountries.push(borders[i]);
   }
 
-  return (
+  return borderCountries ? (
     <ul>
       {borderCountries.map((country, i) =>
         country ? (
           <li key={i}>
-            <Link href={`/countries/${country}`}>
-              <LinkButton buttonprops={{ title: country }} />
+            <Link
+              href={`/countries/${country.replace(
+                /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
+                ""
+              )}`}
+            >
+              <LinkButton
+                buttonprops={{
+                  title: country.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, ""),
+                }}
+              />
             </Link>
           </li>
         ) : (
@@ -57,6 +66,8 @@ function borderCountries(borders: any[]) {
         )
       )}
     </ul>
+  ) : (
+    <></>
   );
 }
 
