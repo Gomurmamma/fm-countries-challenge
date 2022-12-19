@@ -4,12 +4,6 @@ import Link from "next/link";
 import style from "./CountryCardDetails.module.scss";
 import LinkButton from "../LinkButton/LinkButton.component";
 
-type ButtonProps = {
-  buttonprops: {
-    title: string;
-  };
-};
-
 type currencyObj = {
   currency: {
     name: string;
@@ -34,34 +28,41 @@ type CardProps = {
     topLevelDomain: string[];
     currencies: currencyObj[];
     languages: languageObj[];
-    borders: string[];
+    borders: any[];
   };
 };
 
-function borderCountries(borders: string[]) {
+function borderCountries(borders: any[]) {
+  console.log("the borders array", borders);
+
   // Initialize borderCountries[]
-  let borderCountries: string[] = [];
+  let borderCountries: any[] = [];
 
   // borders array reduced to first 3 items into borderCountries[]
   for (let i = 0; i < 3; i++) {
     borderCountries.push(borders[i]);
   }
 
-  // map borders array to li's
   return (
     <ul>
-      {borderCountries.map((country, i) => (
-        <li key={i}>
-          <Link href={`/countries/${country.replace(/\s+/g, "")}`}>
-            <LinkButton buttonprops={{ title: country }} />
-          </Link>
-        </li>
-      ))}
+      {borderCountries.map((country, i) =>
+        country ? (
+          <li key={i}>
+            <Link href={`/countries/${country}`}>
+              <LinkButton buttonprops={{ title: country }} />
+            </Link>
+          </li>
+        ) : (
+          ""
+        )
+      )}
     </ul>
   );
 }
 
 function CountryCardDetails({ country }: CardProps): JSX.Element {
+  console.log("4444 Here's country obj in detail component", country.name);
+
   return (
     <>
       <figure className={style.CountryCardDetails}>
@@ -91,7 +92,7 @@ function CountryCardDetails({ country }: CardProps): JSX.Element {
                   <span>Sub Region:</span> {country.subregion}
                 </li>
                 <li>
-                  <span>Capital</span> {country.capital}
+                  <span>Capital:</span> {country.capital}
                 </li>
               </ul>
             </div>
@@ -103,29 +104,24 @@ function CountryCardDetails({ country }: CardProps): JSX.Element {
                 <li>
                   <span>Currencies: </span>
                   {
-                    // Renders single currency, or currencies with commas & spaces
-                    country.currencies.length === 1 ? (
-                      `${country.currencies[0].currency.name}`
-                    ) : (
-                      <ul>
-                        {country.currencies.map((currency, i) => (
-                          <li key={i}>`${currency.currency.name}, `</li>
-                        ))}
-                      </ul>
-                    )
+                    <ul>
+                      {country.currencies.map((currency, i) => (
+                        <li key={i}>{currency.name} </li>
+                      ))}
+                    </ul>
                   }
                 </li>
 
                 <li>
-                  <span>Languages:</span>
+                  <span>Languages: </span>
                   {
                     // Renders single language, or languages with commas & spaces
-                    country.languages.length === 1 ? (
-                      `${country.languages[0].language.name}`
+                    country.languages?.length === 1 ? (
+                      `${country.languages[0].name}`
                     ) : (
                       <ul>
-                        {country.languages.map((language, i) => (
-                          <li key={i}>{language.language.name} </li>
+                        {country.languages?.map((language, i) => (
+                          <li key={i}>{language.name} </li>
                         ))}
                       </ul>
                     )
@@ -136,7 +132,11 @@ function CountryCardDetails({ country }: CardProps): JSX.Element {
           </ul>
           <div>
             <p>Border Countries:</p>
-            <nav>{borderCountries(country.borders)}</nav>
+            {country.borders ? (
+              <nav>{borderCountries(country.borders)}</nav>
+            ) : (
+              ""
+            )}
           </div>
         </figcaption>
       </figure>

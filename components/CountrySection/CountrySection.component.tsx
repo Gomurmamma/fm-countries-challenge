@@ -2,8 +2,37 @@ import React from "react";
 import style from "./CountrySection.module.scss";
 import CountryCardDetails from "../CountryCardDetails/CountryCardDetails.component";
 
-const CountrySection: React.FC = () => {
-  const country = {
+type currencyObj = {
+  currency: {
+    name: string;
+  };
+};
+
+type languageObj = {
+  language: {
+    name: string;
+  };
+};
+type CardProps = {
+  country: {
+    name: string;
+    population: number;
+    region: string;
+    capital: string;
+    flag: string;
+    nativeName: string;
+    subregion: string;
+    topLevelDomain: string[];
+    currencies: currencyObj[];
+    languages: languageObj[];
+    borders: string[];
+  };
+};
+
+const CountrySection = (country) => {
+  console.log("2222222 Here country data in section", country.country.country);
+
+  const demo_country = {
     name: "Chad",
     population: 2000,
     region: "Africa",
@@ -18,12 +47,12 @@ const CountrySection: React.FC = () => {
       { language: { name: "german" } },
       { language: { name: "local" } },
     ],
-    borders: ["Egypt", "Kenya", "Ethiopia"],
+    borders: ["Egypt", "Kenya", "Ethiopia", "Congo", "South Africa"],
   };
 
   return (
     <section className={style.CountrySection}>
-      <CountryCardDetails country={country} />
+      <CountryCardDetails country={country.country.country} />
     </section>
   );
 };
