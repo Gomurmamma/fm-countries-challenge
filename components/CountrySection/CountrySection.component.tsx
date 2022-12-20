@@ -30,7 +30,7 @@ type CardProps = {
 };
 
 const CountrySection = (country) => {
-  console.log("2222222 Here country data in section", country.country.country);
+  console.log("2222222 Here country data in section", country);
 
   const demo_country = {
     name: "Chad",

@@ -129,9 +129,44 @@ function Country({ countryData }) {
   );
 }
 
-//TODO
-// split at the first space !!!!!!!!!
-// if there's no capital then don't render the list item - Overview
+async function getCountry(param_id: string, name: string) {
+  const res = await fetch(
+    `https://restcountries.com/v2/name/${name.match(/(?<=^)\S[a-z]*/g)}`
+  );
+  const data = await res.json();
+
+  for (let i = 0; i < data.length; i++) {
+    console.log("matching loop: id", param_id);
+    console.log(
+      "matching loop: name",
+      data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+    );
+
+    if (
+      param_id === data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+    ) {
+      console.log("found it!", data[i]);
+
+      const countryData = {
+        country: {
+          name: data[i].name,
+          population: data[i].population,
+          region: data[i].region,
+          capital: data[i].capital ? data[i].capital : null,
+          flag: data[i].flag,
+          nativeName: data[i].nativeName,
+          subregion: data[i].subregion,
+          topLevelDomain: data[i].topLevelDomain,
+          currencies: data[i].currencies,
+          languages: data[i].languages,
+          borders: data[i].borders ? data[i].borders : null,
+        },
+      };
+
+      return countryData;
+    }
+  }
+}
 
 export async function getServerSideProps(context) {
   let param_id = context.params.country;
@@ -155,114 +190,32 @@ export async function getServerSideProps(context) {
   console.log("verifying search_id", search_id);
   console.log("verifying param_id", param_id);
 
-  let countryData: CardProps = {
-    country: {
-      name: "",
-      population: 0,
-      region: "",
-      capital: "",
-      flag: "",
-      nativeName: "",
-      subregion: "",
-      topLevelDomain: [],
-      currencies: [],
-      languages: [],
-    },
-  };
+  //let countryData: CardProps = {
+  //  country: {
+  //    name: "",
+  //    population: 0,
+  //    region: "",
+  //    capital: "",
+  //    flag: "",
+  //    nativeName: "",
+  //    subregion: "",
+  //    topLevelDomain: [],
+  //    currencies: [],
+  //    languages: [],
+  //  },
+  //};
 
   //  TODO: Typing for countryResponse
   let countryResponse = undefined;
 
-  try {
-    let query_id = undefined;
+  let query_id = undefined;
 
-    // update query_id with search_id or param_id
-    search_id === undefined ? (query_id = param_id) : (query_id = search_id);
+  // update query_id to param_id if search_id was never used
+  search_id === undefined ? (query_id = param_id) : (query_id = search_id);
 
-    let url = `https://restcountries.com/v2/name/${query_id.match(
-      /(?<=^)\S[a-z]*/g
-    )}`;
-    console.log("here's the url:", url);
-    console.log("Here's the used id", query_id);
-
-    countryResponse = await axios.get(
-      `https://restcountries.com/v2/name/${query_id.match(/(?<=^)\S[a-z]*/g)}`
-    );
-
-    console.log("the country response v2:", countryResponse.data);
-
-    // The correct country from the response id === response[i].name.match(/removed spaces/)
-
-    console.log(
-      "11111111111 country data object here",
-      countryResponse.data[0]
-    );
-  } catch (error) {
-    console.log(error);
-  }
-
-  console.log("Before the loop", countryResponse);
-
-  for (let i = 0; i < countryResponse.data.length; i++) {
-    console.log("matching loop: id", param_id);
-    console.log(
-      "matching loop: name",
-      countryResponse.data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
-    );
-
-    if (
-      param_id ===
-      countryResponse.data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
-    ) {
-      console.log("found it!", countryResponse.data[i]);
-
-      countryData = {
-        country: {
-          name: countryResponse.data[i].name,
-          population: countryResponse.data[i].population,
-          region: countryResponse.data[i].region,
-          capital: countryResponse.data[i].capital
-            ? countryResponse.data[i].capital
-            : null,
-          flag: countryResponse.data[i].flag,
-          nativeName: countryResponse.data[i].nativeName,
-          subregion: countryResponse.data[i].subregion,
-          topLevelDomain: countryResponse.data[i].topLevelDomain,
-          currencies: countryResponse.data[i].currencies,
-          languages: countryResponse.data[i].languages,
-          borders: countryResponse.data[i].borders
-            ? countryResponse.data[i].borders
-            : null,
-        },
-      };
-    }
-  }
+  const countryData = await getCountry(param_id, query_id);
 
   console.log("And the country data!", countryData);
-
-  //try {
-  //  let border_res = await axios.get(
-  //    `https://restcountries.com/v3.1/alpha?codes=${countryData.country.borders[0]},${countryData.country.borders[1]},${countryData.country.borders[2]}`
-  //  );
-  //
-  //  countryData = {
-  //    country: {
-  //      name: countryData.country.name,
-  //      population: countryData.country.population,
-  //      region: countryData.country.region,
-  //      capital: countryData.country.capital,
-  //      flag: countryData.country.flag,
-  //      nativeName: countryData.country.nativeName,
-  //      subregion: countryData.country.subregion,
-  //      topLevelDomain: countryData.country.topLevelDomain,
-  //      currencies: countryData.country.currencies,
-  //      languages: countryData.country.languages,
-  //      borders: border_res.data,
-  //    },
-  //  };
-  //} catch (error) {
-  //  console.log(error);
-  //}
 
   return { props: { countryData } };
 }
