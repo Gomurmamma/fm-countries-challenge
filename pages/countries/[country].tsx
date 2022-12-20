@@ -23,7 +23,7 @@ type CardProps = {
     name: string;
     population: number;
     region: string;
-    capital: string;
+    capital?: string | null;
     flag: string;
     nativeName: string;
     subregion: string;
@@ -152,38 +152,61 @@ export async function getServerSideProps(context) {
     },
   };
 
-  try {
-    let url = `https://restcountries.com/v2/name/${id}`;
-    console.log("here's the url:", url);
+  //  TODO: Typing for countryResponse
+  let countryResponse = undefined;
 
-    let country_res = await axios.get(
+  try {
+    let url = `https://restcountries.com/v2/name/${id.match(
+      /(?<=^)\S[a-z]*/g
+    )}`;
+    console.log("here's the url:", url);
+    console.log("Here's the unaltered id", id);
+
+    countryResponse = await axios.get(
       `https://restcountries.com/v2/name/${id.match(/(?<=^)\S[a-z]*/g)}`
     );
 
-    console.log("the country response v2:", country_res.data[0]);
+    console.log("the country response v2:", countryResponse.data);
 
-    countryData = {
-      country: {
-        name: country_res.data[0].name,
-        population: country_res.data[0].population,
-        region: country_res.data[0].region,
-        capital: country_res.data[0].capital,
-        flag: country_res.data[0].flag,
-        nativeName: country_res.data[0].nativeName,
-        subregion: country_res.data[0].subregion,
-        topLevelDomain: country_res.data[0].topLevelDomain,
-        currencies: country_res.data[0].currencies,
-        languages: country_res.data[0].languages,
-        borders: country_res.data[0].borders
-          ? country_res.data[0].borders
-          : null,
-      },
-    };
+    // The correct country from the response id === response[i].name.match(/removed spaces/)
 
-    console.log("11111111111 country data object here", countryData.country);
+    console.log(
+      "11111111111 country data object here",
+      countryResponse.data[0]
+    );
   } catch (error) {
     console.log(error);
   }
+
+  for (let i = 0; i < countryResponse.data.length; i++) {
+    if (
+      id ===
+      countryResponse.data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+    ) {
+      console.log("found it!", countryResponse.data[i]);
+
+      countryData = {
+        country: {
+          name: countryResponse.data[i].name,
+          population: countryResponse.data[i].population,
+          region: countryResponse.data[i].region,
+          capital: countryResponse.data[i].capital
+            ? countryResponse.data[i].capital
+            : null,
+          flag: countryResponse.data[i].flag,
+          nativeName: countryResponse.data[i].nativeName,
+          subregion: countryResponse.data[i].subregion,
+          topLevelDomain: countryResponse.data[i].topLevelDomain,
+          currencies: countryResponse.data[i].currencies,
+          languages: countryResponse.data[i].languages,
+          borders: countryResponse.data[i].borders
+            ? countryResponse.data[i].borders
+            : null,
+        },
+      };
+    }
+  }
+  console.log("And the country data!", countryData);
 
   //try {
   //  let border_res = await axios.get(
