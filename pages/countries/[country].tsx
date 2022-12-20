@@ -168,6 +168,14 @@ async function getCountry(param_id: string, name: string) {
   }
 }
 
+async function getBorderCountryNames(country) {
+  const res = await fetch(
+    `https://restcountries.com/v3.1/alpha?codes=${country.country.borders[0]},${country.country.borders[1]},${country.country.borders[2]}`
+  );
+  const data = await res.json();
+  return data;
+}
+
 export async function getServerSideProps(context) {
   let param_id = context.params.country;
   console.log("Params ID is:", param_id);
@@ -214,6 +222,26 @@ export async function getServerSideProps(context) {
   search_id === undefined ? (query_id = param_id) : (query_id = search_id);
 
   const countryData = await getCountry(param_id, query_id);
+
+  let borderCountries = undefined;
+
+  if (countryData.country.borders) {
+    borderCountries = await getBorderCountryNames(countryData);
+
+    console.log(
+      "Here are the bordering countries you asked for boss:",
+      borderCountries
+    );
+
+    return {
+      props: {
+        countryData,
+        borderCountries,
+      },
+    };
+  }
+
+  console.log("bordering countries", borderCountries);
 
   console.log("And the country data!", countryData);
 
