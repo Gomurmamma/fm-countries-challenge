@@ -134,8 +134,26 @@ function Country({ countryData }) {
 // if there's no capital then don't render the list item - Overview
 
 export async function getServerSideProps(context) {
-  const id = context.params.country;
-  console.log("Params ID is:", id);
+  let param_id = context.params.country;
+  console.log("Params ID is:", param_id);
+
+  console.log("Removing 'and':", param_id.replace(/(?<=d)and/gm, ""));
+
+  let search_id = undefined;
+
+  // Remove 'and' from Country Name if following 's', 'd', or 'a'
+  if (param_id.match(/(?:dand)/gm))
+    // Trinidad and Tobago
+    search_id = param_id.replace(/(?<=d)and/gm, "");
+  if (param_id.match(/(?:sand)/gm))
+    // Wallis and Futuna
+    search_id = param_id.replace(/(?<=s)and/gm, "");
+  if (param_id.match(/(?:aand)/gm))
+    // Antigua and Barbuda, Bosnia and Herzegovina
+    search_id = param_id.replace(/(?<=a)and/gm, "");
+
+  console.log("verifying search_id", search_id);
+  console.log("verifying param_id", param_id);
 
   let countryData: CardProps = {
     country: {
@@ -156,14 +174,19 @@ export async function getServerSideProps(context) {
   let countryResponse = undefined;
 
   try {
-    let url = `https://restcountries.com/v2/name/${id.match(
+    let query_id = undefined;
+
+    // update query_id with search_id or param_id
+    search_id === undefined ? (query_id = param_id) : (query_id = search_id);
+
+    let url = `https://restcountries.com/v2/name/${query_id.match(
       /(?<=^)\S[a-z]*/g
     )}`;
     console.log("here's the url:", url);
-    console.log("Here's the unaltered id", id);
+    console.log("Here's the used id", query_id);
 
     countryResponse = await axios.get(
-      `https://restcountries.com/v2/name/${id.match(/(?<=^)\S[a-z]*/g)}`
+      `https://restcountries.com/v2/name/${query_id.match(/(?<=^)\S[a-z]*/g)}`
     );
 
     console.log("the country response v2:", countryResponse.data);
@@ -178,9 +201,17 @@ export async function getServerSideProps(context) {
     console.log(error);
   }
 
+  console.log("Before the loop", countryResponse);
+
   for (let i = 0; i < countryResponse.data.length; i++) {
+    console.log("matching loop: id", param_id);
+    console.log(
+      "matching loop: name",
+      countryResponse.data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+    );
+
     if (
-      id ===
+      param_id ===
       countryResponse.data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
     ) {
       console.log("found it!", countryResponse.data[i]);
@@ -206,6 +237,7 @@ export async function getServerSideProps(context) {
       };
     }
   }
+
   console.log("And the country data!", countryData);
 
   //try {
