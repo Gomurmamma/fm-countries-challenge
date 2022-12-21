@@ -1,6 +1,9 @@
 import React from "react";
 import style from "./CountrySection.module.scss";
 import CountryCardDetails from "../CountryCardDetails/CountryCardDetails.component";
+import LinkButton from "../LinkButton/LinkButton.component";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type currencyObj = {
   currency: {
@@ -30,6 +33,8 @@ type CardProps = {
 };
 
 const CountrySection = (country) => {
+  const router = useRouter();
+
   console.log("2222222 Here country data in section", country);
   console.log(
     "2222222 Here BORDERcountries in section",
@@ -56,6 +61,10 @@ const CountrySection = (country) => {
 
   return (
     <section className={style.CountrySection}>
+      <LinkButton
+        buttonprops={{ title: "Back" }}
+        onClick={() => router.back()}
+      />
       <CountryCardDetails
         country={country.country.country}
         borderCountries={country.borderCountries}

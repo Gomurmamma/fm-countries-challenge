@@ -5,11 +5,12 @@ type ButtonProps = {
   buttonprops: {
     title: string;
   };
+  onClick: () => void;
 };
 
-const LinkButton = ({ buttonprops }: ButtonProps) => {
+const LinkButton = ({ buttonprops, onClick }: ButtonProps) => {
   return (
-    <button type="button" className={style.LinkButton}>
+    <button type="button" className={style.LinkButton} onClick={onClick}>
       {buttonprops.title}
     </button>
   );
