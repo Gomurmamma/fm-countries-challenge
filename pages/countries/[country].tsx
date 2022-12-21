@@ -151,7 +151,7 @@ async function getCountry(param_id: string, name: string) {
         nativeName: data[0].nativeName,
         subregion: data[0].subregion,
         topLevelDomain: data[0].topLevelDomain,
-        currencies: data[0].currencies,
+        currencies: data[0].currencies ? data[0].currencies : null,
         languages: data[0].languages,
         borders: data[0].borders ? data[0].borders : null,
       },
@@ -168,10 +168,12 @@ async function getCountry(param_id: string, name: string) {
       "native name match:",
       data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
     );
-    console.log(
-      "matching loop name regex:",
-      data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
-    );
+    //console.log(
+    //  "matching loop name regex:",
+    //  data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
+    //);
+    console.log("name unedited for country:", data[i].name);
+    console.log("Check out altSpellings:", data[i].altSpellings);
     //console.log(
     //  "matching loop name regex:",
     //  data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
@@ -182,10 +184,15 @@ async function getCountry(param_id: string, name: string) {
     //);
 
     if (
-      // Previously used the regex above ^
       param_id ===
-        data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "") ||
-      param_id === data[i].name.match(/(?<=^)\S[a-z]*/g)[0]
+        data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "") || // United States
+      param_id === data[i].name.match(/(?<=^)\S[a-z]*/g)[0] || // Iran - Islamic Republic of
+      param_id === data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "") || // Åland Islands
+      data[i].altSpellings.find(
+        (altName) =>
+          altName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "") === param_id
+      ) || // DR Congo: common name from v3.1 is in altSpellings from v2
+      name === data[i].name // Congo, Republic of
     ) {
       console.log("found it!", data[i]);
 
@@ -199,7 +206,7 @@ async function getCountry(param_id: string, name: string) {
           nativeName: data[i].nativeName,
           subregion: data[i].subregion,
           topLevelDomain: data[i].topLevelDomain,
-          currencies: data[i].currencies,
+          currencies: data[i].currencies ? data[i].currencies : null,
           languages: data[i].languages,
           borders: data[i].borders ? data[i].borders : null,
         },
@@ -238,6 +245,10 @@ export async function getServerSideProps(context) {
   if (param_id.match(/(?:aand)/gm))
     // Antigua and Barbuda, Bosnia and Herzegovina
     search_id = param_id.replace(/(?<=a)and/gm, "");
+  if (param_id.match(/(?:Republicofthe)/g)) {
+    // Republic of the Congo
+    search_id = param_id.replace(/(?:Republicofthe)/g, "");
+  }
 
   console.log("verifying search_id", search_id);
   console.log("verifying param_id", param_id);
@@ -264,6 +275,9 @@ export async function getServerSideProps(context) {
 
   // update query_id to param_id if search_id was never used
   search_id === undefined ? (query_id = param_id) : (query_id = search_id);
+
+  console.log("Final query ID:", query_id);
+  console.log("Final param_id:", param_id);
 
   const countryData = await getCountry(param_id, query_id);
 

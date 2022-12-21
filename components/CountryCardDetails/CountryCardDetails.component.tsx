@@ -120,9 +120,11 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
                   <span>Currencies: </span>
                   {
                     <ul>
-                      {country.currencies.map((currency, i) => (
-                        <li key={i}>{currency.name} </li>
-                      ))}
+                      {country.currencies
+                        ? country.currencies.map((currency, i) => (
+                            <li key={i}>{currency.name} </li>
+                          ))
+                        : ""}
                     </ul>
                   }
                 </li>

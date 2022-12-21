@@ -5,7 +5,7 @@ type ButtonProps = {
   buttonprops: {
     title: string;
   };
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const LinkButton = ({ buttonprops, onClick }: ButtonProps) => {
