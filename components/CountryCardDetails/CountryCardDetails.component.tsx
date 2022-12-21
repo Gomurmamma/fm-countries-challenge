@@ -71,8 +71,12 @@ const borderCountries = async (borders: any[]) => {
   );
 };
 
-function CountryCardDetails({ country }: CardProps): JSX.Element {
+function CountryCardDetails({ country, borderCountries }): JSX.Element {
   console.log("4444 Here's country obj in detail component", country);
+  console.log(
+    "4444 Here's borderCountries in detail component",
+    borderCountries
+  );
 
   return (
     <>
@@ -143,19 +147,19 @@ function CountryCardDetails({ country }: CardProps): JSX.Element {
           </ul>
           <div>
             <p>Border Countries:</p>
-            {country.borders ? (
+            {borderCountries ? (
               <nav>
-                {country.borders.slice(0, 3).map((country, i) => (
+                {borderCountries.slice(0, 3).map((country, i) => (
                   <Link
                     key={i}
-                    href={`/countries/${country.replace(
+                    href={`/countries/${country.name.common.replace(
                       /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                       ""
                     )}`}
                   >
                     <LinkButton
                       buttonprops={{
-                        title: country.replace(
+                        title: country.name.common.replace(
                           /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                           ""
                         ),

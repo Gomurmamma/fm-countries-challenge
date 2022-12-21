@@ -41,9 +41,7 @@ const ToggleButton = dynamic(
   }
 );
 
-function Country({ countryData }) {
-  console.log("Here's country data object in the page", countryData);
-
+function Country({ countryData, borderCountries }) {
   //const [countryDetails, setCountryDetails] = useState<CardProps>({
   //  country: {
   //    name: "",
@@ -124,26 +122,70 @@ function Country({ countryData }) {
       <Header heading="Where in the World?">
         <ToggleButton />
       </Header>
-      <CountrySection country={countryData} />
+      <CountrySection country={countryData} borderCountries={borderCountries} />
     </>
   );
 }
 
 async function getCountry(param_id: string, name: string) {
+  console.log("&&&&&&& the name", name);
+
   const res = await fetch(
     `https://restcountries.com/v2/name/${name.match(/(?<=^)\S[a-z]*/g)}`
   );
+
   const data = await res.json();
+
+  console.log("getCountry response", data);
+
+  if (data.length === 1) {
+    console.log("Only one result!", data[0]);
+
+    const countryData = {
+      country: {
+        name: data[0].name,
+        population: data[0].population,
+        region: data[0].region,
+        capital: data[0].capital ? data[0].capital : null,
+        flag: data[0].flag,
+        nativeName: data[0].nativeName,
+        subregion: data[0].subregion,
+        topLevelDomain: data[0].topLevelDomain,
+        currencies: data[0].currencies,
+        languages: data[0].languages,
+        borders: data[0].borders ? data[0].borders : null,
+      },
+    };
+
+    return countryData;
+  }
+
+  console.log("before the loop data", data);
 
   for (let i = 0; i < data.length; i++) {
     console.log("matching loop: id", param_id);
     console.log(
-      "matching loop: name",
-      data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+      "native name match:",
+      data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
     );
+    console.log(
+      "matching loop name regex:",
+      data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
+    );
+    //console.log(
+    //  "matching loop name regex:",
+    //  data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
+    //);
+    //console.log(
+    //  "matching loop: name",
+    //  data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+    //);
 
     if (
-      param_id === data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
+      // Previously used the regex above ^
+      param_id ===
+        data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "") ||
+      param_id === data[i].name.match(/(?<=^)\S[a-z]*/g)[0]
     ) {
       console.log("found it!", data[i]);
 
@@ -173,6 +215,8 @@ async function getBorderCountryNames(country) {
     `https://restcountries.com/v3.1/alpha?codes=${country.country.borders[0]},${country.country.borders[1]},${country.country.borders[2]}`
   );
   const data = await res.json();
+
+  console.log("border countries response", data);
   return data;
 }
 
@@ -240,10 +284,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
-  console.log("bordering countries", borderCountries);
-
-  console.log("And the country data!", countryData);
 
   return { props: { countryData } };
 }

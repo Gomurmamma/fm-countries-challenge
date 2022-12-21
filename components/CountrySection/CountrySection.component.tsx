@@ -31,6 +31,10 @@ type CardProps = {
 
 const CountrySection = (country) => {
   console.log("2222222 Here country data in section", country);
+  console.log(
+    "2222222 Here BORDERcountries in section",
+    country.borderCountries
+  );
 
   const demo_country = {
     name: "Chad",
@@ -52,7 +56,10 @@ const CountrySection = (country) => {
 
   return (
     <section className={style.CountrySection}>
-      <CountryCardDetails country={country.country.country} />
+      <CountryCardDetails
+        country={country.country.country}
+        borderCountries={country.borderCountries}
+      />
     </section>
   );
 };
