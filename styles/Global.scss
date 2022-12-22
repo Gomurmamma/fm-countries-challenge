@@ -41,6 +41,12 @@ body[data-theme="dark"] {
   --color-element-primary: var(--element-dark-mode);
 }
 
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);

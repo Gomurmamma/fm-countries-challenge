@@ -32,7 +32,7 @@ function CountryCardOverview({ country }: CardProps) {
         </div>
         <figcaption>
           <h2>{country.name}</h2>
-          <ul>
+          <ul role="list">
             <li>{country.population}</li>
             <li>{country.region}</li>
             <li>{country.capital}</li>
