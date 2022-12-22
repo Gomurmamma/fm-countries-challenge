@@ -6,6 +6,9 @@
   font-weight: 600;
   color: var(--color-text-primary);
 
+  border: none;
+  padding: 0.65rem;
+
   &:focus {
     outline: 0.1em var(--color-focus-indicator) solid;
     outline-offset: 0.1rem;
@@ -25,5 +28,9 @@
 
   &:hover {
     box-shadow: 0 0 5px 2px var(--color-element-primary);
+  }
+
+  &__text {
+    font-size: 1.4rem;
   }
 }
