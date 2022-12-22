@@ -7,11 +7,20 @@
   color: var(--color-text-primary);
 
   &:focus {
-    outline-offset: 5px;
+    outline: 0.1em var(--color-focus-indicator) solid;
+    outline-offset: 0.1rem;
   }
 
   &:focus:not(:focus-visible) {
-    outline: none;
+    /* when not in focus - undo focus styles*/
+    outline: 0;
+    outline-offset: 0.25rem;
+  }
+
+  &:focus-visible {
+    /* keyboard navigators */
+    outline: 0.25em var(--color-focus-indicator) dashed;
+    outline-offset: 0.25rem;
   }
 
   &:hover {

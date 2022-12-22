@@ -22,13 +22,13 @@
       outline-offset: 0.1rem;
     }
 
-    *:focus:not(:focus-visible) {
+    &:focus:not(:focus-visible) {
       /* when not in focus - undo focus styles*/
       outline: 0;
       outline-offset: 0.25rem;
     }
 
-    *:focus-visible {
+    &:focus-visible {
       /* keyboard navigators */
       outline: 0.25em var(--color-focus-indicator) dashed;
       outline-offset: 0.25rem;

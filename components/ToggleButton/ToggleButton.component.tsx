@@ -27,12 +27,12 @@ const ToggleButton: React.FC = () => {
       {activeTheme === "light" || activeTheme === undefined ? (
         <>
           <BsMoon aria-hidden={true} />
-          <span>Dark Mode</span>
+          <span> Dark Mode</span>
         </>
       ) : (
         <>
           {" "}
-          <BsFillMoonFill aria-hidden={true} /> <span>Light Mode</span>
+          <BsFillMoonFill aria-hidden={true} /> <span> Light Mode</span>
         </>
       )}
     </button>
