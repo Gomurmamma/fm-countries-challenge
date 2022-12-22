@@ -44,7 +44,7 @@ const borderCountries = async (borders: any[]) => {
   }
 
   return borderCountries ? (
-    <ul>
+    <ul role="list">
       {borderCountries.map((country, i) =>
         country ? (
           <li key={i}>
@@ -91,9 +91,9 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
         </div>
         <figcaption>
           <h2>{country.name}</h2>
-          <ul>
+          <ul role="list">
             <div>
-              <ul>
+              <ul role="list">
                 <li>
                   <span>Native Name:</span> {country.nativeName}
                 </li>
@@ -112,14 +112,14 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
               </ul>
             </div>
             <div>
-              <ul>
+              <ul role="list">
                 <li>
                   <span>Top Level Domain: {country.topLevelDomain}</span>
                 </li>
                 <li>
                   <span>Currencies: </span>
                   {
-                    <ul>
+                    <ul role="list">
                       {country.currencies
                         ? country.currencies.map((currency, i) => (
                             <li key={i}>{currency.name} </li>
@@ -136,7 +136,7 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
                     country.languages?.length === 1 ? (
                       `${country.languages[0].name}`
                     ) : (
-                      <ul>
+                      <ul role="list">
                         {country.languages?.map((language, i) => (
                           <li key={i}>{language.name} </li>
                         ))}
