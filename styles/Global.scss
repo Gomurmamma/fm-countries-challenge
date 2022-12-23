@@ -11,6 +11,9 @@
   --color-focus-indicator: #aa2b2b;
   // FONT VARIABLES
   --font-primary: "Nunito Sans", sans-serif;
+  // BG ICON IMAGES
+  --chevron-down-black: url("/icons8-chevron-down-24-black.png");
+  --chevron-down-white: url("/icons8-chevron-down-24-white.png");
 }
 
 *,
@@ -33,12 +36,14 @@ body[data-theme="light"] {
   --color-text-primary: var(--text-light-mode);
   --color-bg-primary: var(--background-light-mode);
   --color-element-primary: var(--color-white);
+  --chevron-icon: var(--chevron-down-black);
 }
 
 body[data-theme="dark"] {
   --color-text-primary: var(--color-white);
   --color-bg-primary: var(--background-dark-mode);
   --color-element-primary: var(--element-dark-mode);
+  --chevron-icon: var(--chevron-down-white);
 }
 
 ul[role="list"],

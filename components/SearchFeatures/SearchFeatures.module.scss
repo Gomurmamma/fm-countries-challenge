@@ -90,11 +90,24 @@
 }
 
 .SearchFilter {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
+  border: none;
   border-radius: 0.25rem;
   background-color: var(--color-element-primary);
   color: var(--color-text-primary);
-  padding: 1rem;
+  padding: 1.5rem 2rem;
   font-size: 1.4rem;
-  width: 8vw;
+  width: 9vw;
+  appearance: none;
+  -moz-appearnce: none;
+  -webkit-appearance: none;
+
+  background-image: var(--chevron-icon);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1vw) center; /* x-position, y-position*/
+  background-size: 1rem;
+
+  &__option {
+    padding: 0.25rem;
+  }
 }
