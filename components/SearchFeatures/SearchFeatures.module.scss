@@ -88,3 +88,13 @@
     font-size: 2rem;
   }
 }
+
+.SearchFilter {
+  border: 1px solid yellow;
+  border-radius: 0.25rem;
+  background-color: var(--color-element-primary);
+  color: var(--color-text-primary);
+  padding: 1rem;
+  font-size: 1.4rem;
+  width: 8vw;
+}

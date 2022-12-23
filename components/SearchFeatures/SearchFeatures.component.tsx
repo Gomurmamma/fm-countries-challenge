@@ -104,6 +104,7 @@ const SearchFeatures: React.FC = () => {
           name="region"
           value={regionFilter}
           onChange={handleRegionChange}
+          className={style.SearchFilter}
         >
           <option value="">
             {regionFilter === ""
