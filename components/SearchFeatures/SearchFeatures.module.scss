@@ -19,20 +19,28 @@
 
   &__inputContainer {
     border: 2px solid yellow;
+    background-color: var(--color-element-primary);
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
   }
 
   &__input {
     border: none;
     margin-left: 0.5rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-element-primary);
   }
 
   &__button {
+    /* magnifyingGlass container*/
     border: none;
     background-color: var(--color-element-primary);
-    margin: 0.25rem;
+    margin: 0.5rem;
   }
 
   &__magnifyingGlass {
     color: var(--color-text-primary);
+    font-size: 1.6rem;
   }
 }
