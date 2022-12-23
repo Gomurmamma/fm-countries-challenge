@@ -18,7 +18,7 @@
   padding: 0.8rem;
 
   &__inputContainer {
-    border: 2px solid yellow;
+    /*border: 2px solid yellow;*/
     background-color: var(--color-element-primary);
     display: flex;
     align-items: center;
@@ -38,6 +38,7 @@
     &::placeholder {
       color: var(--color-text-primary);
       font-size: 1.4rem;
+      opacity: 1;
     }
 
     &:focus {
