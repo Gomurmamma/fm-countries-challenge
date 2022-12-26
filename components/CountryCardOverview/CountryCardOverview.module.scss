@@ -1,18 +1,21 @@
 .CountryCardOverview {
-  border: 2px solid lightcoral;
+  border: 1px solid lightcoral;
   display: flex;
   flex-direction: column;
+  border-radius: 0.25rem;
+  margin: 3.5rem;
+  width: 14vw;
+  height: 30rem;
 
   &__imageFrame {
     position: relative;
-    width: 30rem;
-    height: 10rem;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
+    width: 100%;
+    height: 15rem;
+
+    border: 1px solid red;
   }
 
   &__image {
-    width: 100%;
-    height: 100%;
+    object-fit: cover;
   }
 }
