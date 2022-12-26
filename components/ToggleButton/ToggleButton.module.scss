@@ -1,4 +1,7 @@
 .togglebutton {
+  /* hardcoded positioning */
+  margin-right: 10rem;
+
   transition: 0.25s ease-in-out;
   background-color: var(--color-element-primary);
 
