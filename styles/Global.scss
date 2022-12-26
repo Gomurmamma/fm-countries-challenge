@@ -60,6 +60,6 @@ body {
 
 #__next {
   display: grid;
-  grid-template-rows: min-max(mincontent, 1fr), repeat(2, mincontent);
-  grid-template-columns: min-content, repeat(6, 1fr), min-content;
+  grid-template-rows: min-content min-content min-content;
+  grid-template-columns: 100vw, 100vw, min-content;
 }
