@@ -39,7 +39,7 @@ function CountryCardOverview({ country }: CardProps) {
             <li className={style.CountryCardOverview__textcontent__info}>
               Population:{" "}
               <span className={style.CountryCardOverview__textcontent__value}>
-                {country.population}
+                {country.population.toLocaleString("en-US")}
               </span>
             </li>
             <li className={style.CountryCardOverview__textcontent__info}>

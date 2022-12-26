@@ -1,5 +1,6 @@
 .CountryCardOverview {
   border: 1px solid lightcoral;
+  background-color: var(--color-element-primary);
   display: flex;
   flex-direction: column;
 
@@ -28,6 +29,7 @@
   }
 
   &__textcontent {
+    background-color: var(--color-element-primary);
     color: var(--color-text-primary);
     font-family: var(--font-primary);
     text-decoration: none;
@@ -42,6 +44,8 @@
 
     &__info {
       font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.5vh;
     }
 
     &__value {
