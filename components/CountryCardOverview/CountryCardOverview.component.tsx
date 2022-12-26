@@ -21,6 +21,7 @@ function CountryCardOverview({ country }: CardProps) {
           /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
           ""
         )}`}
+        className={style.CountryCardOverview__link}
       >
         <div className={style.CountryCardOverview__imageFrame}>
           <Image
@@ -30,12 +31,20 @@ function CountryCardOverview({ country }: CardProps) {
             fill={true}
           />
         </div>
-        <figcaption>
-          <h2>{country.name}</h2>
+        <figcaption className={style.CountryCardOverview__textcontent}>
+          <h2 className={style.CountryCardOverview__textcontent__name}>
+            {country.name}
+          </h2>
           <ul role="list">
-            <li>{country.population}</li>
-            <li>{country.region}</li>
-            <li>{country.capital}</li>
+            <li>
+              Population: <span>{country.population}</span>
+            </li>
+            <li>
+              Region: <span>{country.region}</span>
+            </li>
+            <li>
+              Capital <span>{country.capital}</span>
+            </li>
           </ul>
         </figcaption>
       </Link>

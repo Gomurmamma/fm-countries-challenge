@@ -2,10 +2,18 @@
   border: 1px solid lightcoral;
   display: flex;
   flex-direction: column;
+
   border-radius: 0.25rem;
   margin: 3.5rem;
   width: 14vw;
   height: 30rem;
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+  }
 
   &__imageFrame {
     position: relative;
@@ -17,5 +25,19 @@
 
   &__image {
     object-fit: cover;
+  }
+
+  &__textcontent {
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    text-decoration: none;
+    margin-left: 1vw;
+    margin-top: 2vh;
+
+    &__name {
+      font-family: var(--font-primary);
+      margin-bottom: 1vh;
+      font-weight: 800;
+    }
   }
 }
