@@ -36,14 +36,23 @@ function CountryCardOverview({ country }: CardProps) {
             {country.name}
           </h2>
           <ul role="list">
-            <li>
-              Population: <span>{country.population}</span>
+            <li className={style.CountryCardOverview__textcontent__info}>
+              Population:{" "}
+              <span className={style.CountryCardOverview__textcontent__value}>
+                {country.population}
+              </span>
             </li>
-            <li>
-              Region: <span>{country.region}</span>
+            <li className={style.CountryCardOverview__textcontent__info}>
+              Region:{" "}
+              <span className={style.CountryCardOverview__textcontent__value}>
+                {country.region}
+              </span>
             </li>
-            <li>
-              Capital <span>{country.capital}</span>
+            <li className={style.CountryCardOverview__textcontent__info}>
+              Capital:{" "}
+              <span className={style.CountryCardOverview__textcontent__value}>
+                {country.capital}
+              </span>
             </li>
           </ul>
         </figcaption>
