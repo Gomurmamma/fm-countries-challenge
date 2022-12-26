@@ -1,16 +1,18 @@
 .CountryCardDetails {
-  border: 3px solid gray;
+  border: 3px solid orange;
+  display: flex;
+  justify-content: center;
 
   &__imageFrame {
+    margin-right: 10%;
     position: relative;
-    width: 30rem;
-    height: 10rem;
+    width: 25vw;
+    height: 35vh;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
   }
 
   &__image {
-    width: 100%;
-    height: 100%;
+    object-fit: cover;
   }
 }
