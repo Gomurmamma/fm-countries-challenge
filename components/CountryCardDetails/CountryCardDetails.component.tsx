@@ -89,66 +89,166 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
             fill={true}
           />
         </div>
-        <figcaption>
-          <h2>{country.name}</h2>
-          <ul role="list">
-            <div>
+        <figcaption className={style.CountryCardDetails__textcontent}>
+          <h2 className={style.CountryCardDetails__textcontent__name}>
+            {country.name}
+          </h2>
+          <ul
+            role="list"
+            className={style.CountryCardDetails__textcontent__info}
+          >
+            <li>
               <ul role="list">
-                <li>
-                  <span>Native Name:</span> {country.nativeName}
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
+                  Native Name:
+                  <span
+                    className={
+                      style.CountryCardDetails__textcontent__info__value
+                    }
+                  >
+                    {country.nativeName}
+                  </span>
                 </li>
-                <li>
-                  <span>Population:</span> {country.population}
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
+                  Population:{" "}
+                  <span
+                    className={
+                      style.CountryCardDetails__textcontent__info__value
+                    }
+                  >
+                    {country.population.toLocaleString("en-US")}
+                  </span>
                 </li>
-                <li>
-                  <span>Region:</span> {country.region}
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
+                  Region:{" "}
+                  <span
+                    className={
+                      style.CountryCardDetails__textcontent__info__value
+                    }
+                  >
+                    {country.region}
+                  </span>
                 </li>
-                <li>
-                  <span>Sub Region:</span> {country.subregion}
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
+                  Sub Region:{" "}
+                  <span
+                    className={
+                      style.CountryCardDetails__textcontent__info__value
+                    }
+                  >
+                    {country.subregion}{" "}
+                  </span>
                 </li>
-                <li>
-                  <span>Capital:</span> {country.capital}
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
+                  Capital:{" "}
+                  <span
+                    className={
+                      style.CountryCardDetails__textcontent__info__value
+                    }
+                  >
+                    {country.capital}
+                  </span>
                 </li>
               </ul>
-            </div>
-            <div>
+            </li>
+            <li>
               <ul role="list">
-                <li>
-                  <span>Top Level Domain: {country.topLevelDomain}</span>
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
+                  Top Level Domain:{" "}
+                  <span
+                    className={
+                      style.CountryCardDetails__textcontent__info__value
+                    }
+                  >
+                    {country.topLevelDomain}
+                  </span>
                 </li>
-                <li>
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
                   <span>Currencies: </span>
                   {
-                    <ul role="list">
+                    <ul
+                      role="list"
+                      className={
+                        style.CountryCardDetails__textcontent__infolist
+                      }
+                    >
                       {country.currencies
                         ? country.currencies.map((currency, i) => (
-                            <li key={i}>{currency.name} </li>
+                            <li
+                              key={i}
+                              className={
+                                style.CountryCardDetails__textcontent__info__value
+                              }
+                            >
+                              {currency.name}{" "}
+                            </li>
                           ))
                         : ""}
                     </ul>
                   }
                 </li>
 
-                <li>
+                <li
+                  className={
+                    style.CountryCardDetails__textcontent__info__detail
+                  }
+                >
                   <span>Languages: </span>
                   {
-                    // Renders single language, or languages with commas & spaces
-                    country.languages?.length === 1 ? (
-                      `${country.languages[0].name}`
-                    ) : (
-                      <ul role="list">
-                        {country.languages?.map((language, i) => (
-                          <li key={i}>{language.name} </li>
-                        ))}
-                      </ul>
-                    )
+                    <ul
+                      role="list"
+                      className={
+                        style.CountryCardDetails__textcontent__infolist
+                      }
+                    >
+                      {country.languages?.map((language, i) => (
+                        <li
+                          key={i}
+                          className={
+                            style.CountryCardDetails__textcontent__info__value
+                          }
+                        >
+                          {language.name}
+                        </li>
+                      ))}
+                    </ul>
                   }
                 </li>
               </ul>
-            </div>
+            </li>
           </ul>
           <div>
-            <p>Border Countries:</p>
+            <p className={style.CountryCardDetails__textcontent__info__detail}>
+              Border Countries:
+            </p>
             {borderCountries ? (
               <nav>
                 {borderCountries.slice(0, 3).map((country, i) => (
