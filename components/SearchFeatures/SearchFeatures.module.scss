@@ -1,5 +1,4 @@
 .SearchFeatures {
-  border: 2px solid red;
   grid-column: 2 / 8;
 
   display: flex;
@@ -25,10 +24,10 @@
     display: flex;
     align-items: center;
 
-    padding: 0.5rem;
+    padding: 0.75rem;
     padding-left: 1.5rem;
     border-radius: 0.25rem;
-    width: 28vw;
+    width: 32vw;
   }
 
   &__input {
