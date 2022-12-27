@@ -45,7 +45,11 @@ const CountrySection = (country) => {
     <section className={style.CountrySection}>
       <nav className={style.CountrySection__navBtn}>
         <LinkButton
-          buttonprops={{ title: "Back", html: <>&#8592; </> }}
+          buttonprops={{
+            title: "Back",
+            html: <>&#8592; </>,
+            tooltip: "Go back to the previous page",
+          }}
           onClick={() => router.back()}
         />
       </nav>

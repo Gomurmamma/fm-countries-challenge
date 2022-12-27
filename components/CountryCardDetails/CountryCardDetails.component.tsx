@@ -273,6 +273,10 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
                           /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                           ""
                         ),
+                        tooltip: `Go to the ${country.name.common.replace(
+                          /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
+                          ""
+                        )} page`,
                       }}
                     ></LinkButton>
                   </Link>
