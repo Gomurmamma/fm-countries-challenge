@@ -6,11 +6,12 @@
   flex-direction: column;
 
   background-color: var(--color-bg-primary);
+  margin-top: 2.5vh;
 }
 
 .SearchInput {
   border-radius: 3px;
-  border: 2px solid blue;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,9 +19,7 @@
   padding: 0.8rem;
 
   &__inputContainer {
-    /*border: 2px solid yellow;*/
-
-    margin-left: 4vw;
+    margin-left: 4.5vw;
 
     background-color: var(--color-element-primary);
     display: flex;
@@ -96,14 +95,14 @@
 
 .SearchFilter {
   /* hardcoded positioning*/
-  margin-right: 12rem;
+  margin-right: 4vw;
   border: none;
   border-radius: 0.25rem;
   background-color: var(--color-element-primary);
   color: var(--color-text-primary);
   padding: 1.5rem 2rem;
   font-size: 1.4rem;
-  width: 9vw;
+  width: 12vw;
   appearance: none;
   -moz-appearnce: none;
   -webkit-appearance: none;
