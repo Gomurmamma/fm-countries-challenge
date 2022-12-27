@@ -13,7 +13,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 }) => {
   return (
     <nav className={style.header}>
-      <h1>
+      <h1 title="Go to the Home page">
         <Link href="/" className={style.header__heading}>
           {heading}
         </Link>
