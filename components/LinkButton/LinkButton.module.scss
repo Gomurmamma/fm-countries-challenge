@@ -1,3 +1,6 @@
 .LinkButton {
-  border: 2px solid maroon;
+  border: none;
+  font-family: var(--font-primary);
+  background-color: var(--color-element-primary);
+  color: var(--color-text-primary);
 }
