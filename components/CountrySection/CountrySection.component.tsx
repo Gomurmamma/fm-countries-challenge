@@ -41,30 +41,14 @@ const CountrySection = (country) => {
     country.borderCountries
   );
 
-  const demo_country = {
-    name: "Chad",
-    population: 2000,
-    region: "Africa",
-    capital: "Big City",
-    flag: "https://flagcdn.com/al.svg",
-    nativeName: "Chad",
-    subregion: "Horn of Africa",
-    topLevelDomain: [".be"],
-    currencies: [{ currency: { name: "dollar" } }],
-    languages: [
-      { language: { name: "french" } },
-      { language: { name: "german" } },
-      { language: { name: "local" } },
-    ],
-    borders: ["Egypt", "Kenya", "Ethiopia", "Congo", "South Africa"],
-  };
-
   return (
     <section className={style.CountrySection}>
-      <LinkButton
-        buttonprops={{ title: "Back" }}
-        onClick={() => router.back()}
-      />
+      <nav className={style.CountrySection__navBtn}>
+        <LinkButton
+          buttonprops={{ title: "Back", html: <>&#8592; </> }}
+          onClick={() => router.back()}
+        />
+      </nav>
       <CountryCardDetails
         country={country.country.country}
         borderCountries={country.borderCountries}
