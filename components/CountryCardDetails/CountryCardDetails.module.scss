@@ -1,6 +1,6 @@
 .CountryCardDetails {
   display: flex;
-  padding: 0 4vw;
+  padding: 0 6vw;
 
   justify-content: space-between;
   align-items: flex-start;
@@ -10,7 +10,6 @@
     position: relative;
     width: 42%;
     height: 80%;
-    margin-left: 5vw;
   }
 
   &__image {
