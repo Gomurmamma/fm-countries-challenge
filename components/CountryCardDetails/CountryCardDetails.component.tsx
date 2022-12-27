@@ -248,8 +248,10 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
               </ul>
             </li>
           </ul>
-          <div>
-            <p className={style.CountryCardDetails__textcontent__info__detail}>
+          <div className={style.CountryCardDetails__textcontent__borders}>
+            <p
+              className={style.CountryCardDetails__textcontent__borders__title}
+            >
               Border Countries:
             </p>
             {borderCountries ? (
@@ -261,6 +263,9 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
                       /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                       ""
                     )}`}
+                    className={
+                      style.CountryCardDetails__textcontent__borders__button
+                    }
                   >
                     <LinkButton
                       buttonprops={{
