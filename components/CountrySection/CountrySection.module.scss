@@ -1,10 +1,10 @@
 .CountrySection {
-  border: 2px solid greenyellow;
   display: flex;
   flex-direction: column;
   grid-column: 2 / 8;
 
   &__navBtn {
-    margin: 7vh 0;
+    /* button is hardcoded left margin*/
+    margin: 7vh 7rem;
   }
 }

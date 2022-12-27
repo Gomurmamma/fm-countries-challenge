@@ -71,6 +71,7 @@
     &__borders {
       display: flex;
       flex-direction: row;
+      align-items: center;
 
       &__title {
         font-weight: 600;
