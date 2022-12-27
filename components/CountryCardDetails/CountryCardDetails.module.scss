@@ -8,7 +8,7 @@
 
   &__imageFrame {
     position: relative;
-    width: 40%;
+    width: 42%;
     height: 80%;
     margin-left: 5vw;
   }
@@ -21,9 +21,9 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
-    height: 85%;
+    height: 75%;
     width: 45%;
     font-size: 1.6rem;
 
@@ -38,7 +38,7 @@
     &__info {
       display: flex;
 
-      margin-bottom: 3vh;
+      margin-bottom: 2vh;
 
       & > * {
         width: 50%;
@@ -81,7 +81,7 @@
       }
 
       &__button {
-        margin: 0 0.25vw;
+        margin: 0 0.5vw;
       }
     }
   }
