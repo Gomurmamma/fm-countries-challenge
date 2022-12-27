@@ -1,11 +1,11 @@
 .CountryCardDetails {
   display: flex;
-  justify-content: center;
+
+  justify-content: space-around;
   align-items: center;
-  height: 45vh;
+  height: 50vh;
 
   &__imageFrame {
-    margin-right: 5%;
     position: relative;
     width: 40%;
     height: 100%;
