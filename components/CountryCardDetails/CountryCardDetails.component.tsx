@@ -98,7 +98,10 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
             className={style.CountryCardDetails__textcontent__info}
           >
             <li>
-              <ul role="list">
+              <ul
+                role="list"
+                className={style.CountryCardDetails__textcontent__inline}
+              >
                 <li
                   className={
                     style.CountryCardDetails__textcontent__info__detail

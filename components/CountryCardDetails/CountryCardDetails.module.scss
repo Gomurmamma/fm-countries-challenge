@@ -2,14 +2,16 @@
   border: 3px solid orange;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 45vh;
 
   &__imageFrame {
-    margin-right: 10%;
+    margin-right: 5%;
     position: relative;
-    width: 25vw;
-    height: 35vh;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
+    width: 40%;
+    height: 100%;
+
+    border: 1px solid maroon;
   }
 
   &__image {
@@ -22,12 +24,16 @@
     align-items: left;
     justify-content: center;
     border: 1px solid orange;
-    width: 35%;
+    width: 45%;
     font-size: 1.6rem;
 
     &__name {
       font-size: 3rem;
       margin: 2rem 0;
+    }
+
+    &__inline {
+      display: inline;
     }
 
     &__info {
@@ -41,8 +47,9 @@
 
       &__detail {
         font-weight: 600;
-        display: flex;
+
         margin: 0.5rem 0;
+        display: flex;
 
         & > span {
           margin-right: 0.25vw;
@@ -52,18 +59,20 @@
       &__value {
         font-weight: 300;
         margin-left: 0.25vw;
+        display: inline;
 
         & ~ li {
-          margin-left: 0;
-          &::before {
-            content: ", ";
+          &:not(:last-child) {
+            &:after {
+              content: ", ";
+            }
           }
         }
       }
-    }
 
-    &__infolist {
-      display: flex;
+      &__infolist {
+        border: 2px solid red;
+      }
     }
   }
 }
