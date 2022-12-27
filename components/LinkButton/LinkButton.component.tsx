@@ -13,7 +13,7 @@ const LinkButton = ({ buttonprops, onClick }: ButtonProps) => {
   return (
     <button type="button" className={style.LinkButton} onClick={onClick}>
       <>{buttonprops.html}</>
-      {buttonprops.title}
+      {buttonprops.title.replace(/[a-z](?=[A-Z])/gm, "$& ")}
     </button>
   );
 };

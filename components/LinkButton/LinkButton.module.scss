@@ -1,11 +1,12 @@
 .LinkButton {
+  display: inline-block;
   border: none;
   font-family: var(--font-primary);
   background-color: var(--color-element-primary);
   color: var(--color-text-primary);
   padding: 0.5rem;
   border-radius: 0.3rem;
-  width: 5vw;
+  width: 6vw;
 
   box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.35);
   -webkit-box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.35);
