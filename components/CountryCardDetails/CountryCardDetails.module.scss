@@ -12,7 +12,9 @@
 
   @include small {
     flex-direction: column;
-    height: 100%;
+    height: 200vh;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   &__imageFrame {
@@ -21,7 +23,8 @@
     height: 80%;
 
     @include small {
-      width: 85%;
+      width: 95%;
+      height: 20%;
     }
   }
 
@@ -39,6 +42,10 @@
     width: 45%;
     font-size: 1.6rem;
 
+    @include small {
+      width: 100%;
+    }
+
     &__name {
       font-size: 3rem;
     }
@@ -51,6 +58,10 @@
       display: flex;
 
       margin-bottom: 2vh;
+
+      @include small {
+        flex-direction: column;
+      }
 
       & > * {
         width: 50%;
@@ -86,6 +97,15 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+
+      @include small {
+        flex-direction: column;
+        justify-content: left;
+
+        &__nav {
+          display: flex;
+        }
+      }
 
       &__title {
         font-weight: 600;

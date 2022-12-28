@@ -255,7 +255,9 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
               Border Countries:
             </p>
             {borderCountries ? (
-              <nav>
+              <nav
+                className={style.CountryCardDetails__textcontent__borders__nav}
+              >
                 {borderCountries.slice(0, 3).map((country, i) => (
                   <Link
                     key={i}
