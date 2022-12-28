@@ -18,6 +18,10 @@
     position: relative;
     width: 45%;
     height: 80%;
+
+    @include small {
+      width: 85%;
+    }
   }
 
   &__image {
