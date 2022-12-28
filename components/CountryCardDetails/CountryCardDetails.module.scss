@@ -11,7 +11,9 @@
 
   @include small {
     flex-direction: column;
+    height: fit-content;
   }
+
   &__imageFrame {
     position: relative;
     width: 45%;
