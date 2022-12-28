@@ -65,6 +65,12 @@
     border: none;
     background-color: var(--color-element-primary);
     margin: 0.5rem;
+    transition: 0.25s all ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
 
     &:focus {
       outline: 0.1em var(--color-focus-indicator) solid;
