@@ -10,5 +10,9 @@
   &__navBtn {
     /* button is hardcoded left margin*/
     margin: 5vh 6vw;
+
+    @include small {
+      margin: 8vh 8vw;
+    }
   }
 }
