@@ -15,7 +15,10 @@ type CardProps = {
 
 function CountryCardOverview({ country }: CardProps) {
   return (
-    <figure className={style.CountryCardOverview}>
+    <figure
+      className={style.CountryCardOverview}
+      title={`Go to the ${country.name} page`}
+    >
       <Link
         href={`/countries/${country.name.replace(
           /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
