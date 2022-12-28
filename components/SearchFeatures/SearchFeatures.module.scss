@@ -18,14 +18,14 @@
   padding: 0.8rem;
 
   &__inputContainer {
-    margin-left: 4.5vw;
+    margin-left: 5.5vw;
 
     background-color: var(--color-element-primary);
     display: flex;
     align-items: center;
 
     padding: 0.75rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     border-radius: 0.25rem;
     width: 32vw;
   }
@@ -93,8 +93,7 @@
 }
 
 .SearchFilter {
-  /* hardcoded positioning*/
-  margin-right: 4vw;
+  margin-right: 5.5vw;
   border: none;
   border-radius: 0.25rem;
   background-color: var(--color-element-primary);
