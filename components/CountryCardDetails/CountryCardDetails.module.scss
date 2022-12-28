@@ -1,3 +1,6 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
 .CountryCardDetails {
   display: flex;
   padding: 0 6vw;
@@ -6,6 +9,9 @@
   align-items: flex-start;
   height: 50vh;
 
+  @include small {
+    flex-direction: column;
+  }
   &__imageFrame {
     position: relative;
     width: 45%;
