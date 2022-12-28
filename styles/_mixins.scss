@@ -1,3 +1,5 @@
+@import "../styles/variables";
+
 @mixin small {
   @media screen and (min-width: $bp-small) {
     @content;
