@@ -31,6 +31,8 @@
 
   &:hover {
     box-shadow: 0 0 5px 2px var(--color-element-primary);
+    cursor: pointer;
+    transform: scale(1.05);
   }
 
   &__text {
