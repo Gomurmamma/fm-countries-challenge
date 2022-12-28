@@ -83,6 +83,7 @@ const SearchFeatures: React.FC = () => {
             type="submit"
             onChange={countrySearch}
             className={style.SearchInput__button}
+            title="Enter search"
           >
             <RxMagnifyingGlass className={style.SearchInput__magnifyingGlass} />
           </button>
