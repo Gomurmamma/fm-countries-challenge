@@ -87,12 +87,16 @@
             }
           }
         }
+        @include small {
+          margin-left: 1vw;
+        }
       }
 
       @include small {
         flex-direction: column;
 
         &__detail {
+          justify-content: flex-start;
         }
       }
     }
