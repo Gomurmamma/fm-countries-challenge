@@ -106,6 +106,7 @@ const SearchFeatures: React.FC = () => {
           value={regionFilter}
           onChange={handleRegionChange}
           className={style.SearchFilter}
+          title="Filter countries by geographic region"
         >
           <option value="">
             {regionFilter === ""
