@@ -8,14 +8,13 @@
   align-items: flex-start;
   height: 50vh;
 
-  width: 100vw;
+  width: 100%;
 
   @include small {
     flex-direction: column;
     height: 150vh;
-    align-items: center;
 
-    margin: 2vh 0 0 8vw;
+    margin: 2vh auto;
   }
 
   &__imageFrame {
@@ -113,8 +112,8 @@
     }
 
     @include small {
-      width: 100%;
-      margin-left: 4vw;
+      width: 85%;
+
       justify-content: flex-start;
 
       &__name {
