@@ -15,6 +15,7 @@
     height: 150vh;
 
     margin: 2vh auto;
+    width: 85%;
   }
 
   &__imageFrame {
@@ -141,7 +142,6 @@
         &__nav {
           display: flex;
           width: 100%;
-          justify-content: space-around;
         }
       }
 
