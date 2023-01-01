@@ -1,3 +1,6 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
 .SearchFeatures {
   grid-column: 2 / 8;
 
@@ -95,6 +98,11 @@
     font-size: 1.8rem;
 
     margin: 0 1rem 0 1.25rem;
+  }
+
+  @include small {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
