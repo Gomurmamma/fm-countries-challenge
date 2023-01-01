@@ -40,10 +40,12 @@
 
   &__text {
     font-size: 1.4rem;
+  }
 
-    @include small {
+  @include small {
+    margin-right: 1vw;
+    &__text {
       font-size: 1.2rem;
-      margin-right: 3vw;
     }
   }
 }

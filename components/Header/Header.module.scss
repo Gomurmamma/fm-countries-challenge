@@ -13,6 +13,8 @@
 
   @include small {
     align-items: center;
+    justify-content: space-between;
+    padding: 1vw;
   }
 
   &__heading {
