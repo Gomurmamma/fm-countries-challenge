@@ -1,3 +1,6 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
 .CountryCardOverview {
   background-color: var(--color-element-primary);
   display: flex;
@@ -50,5 +53,10 @@
     &__value {
       font-weight: 300;
     }
+  }
+
+  @include small {
+    width: 75%;
+    height: 60vh;
   }
 }
