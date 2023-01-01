@@ -9,6 +9,7 @@
   align-items: flex-start;
   height: 50vh;
   border: 1px solid red;
+  width: 100vw;
 
   @include small {
     flex-direction: column;
@@ -107,22 +108,8 @@
       flex-direction: row;
       align-items: center;
 
-      @include small {
-        flex-direction: column;
-        align-items: flex-start;
-
-        &__nav {
-          display: flex;
-        }
-      }
-
       &__title {
         font-weight: 600;
-        margin-right: 0.5vw;
-      }
-
-      &__button {
-        margin: 0 0.5vw;
       }
     }
 
@@ -139,8 +126,26 @@
       &__info {
         font-size: 1.4rem;
         &__detail {
-          margin-bottom: 3vh;
+          margin-bottom: 2.5vh;
         }
+      }
+
+      &__borders {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__nav {
+          display: flex;
+        }
+      }
+
+      &__title {
+        font-weight: 600;
+        margin-right: 0.5vw;
+      }
+
+      &__button {
+        margin: 0 0.5vw;
       }
 
       &__inline {
