@@ -58,5 +58,14 @@
   @include small {
     width: 75%;
     height: 60vh;
+
+    &__textcontent {
+      margin-top: 10%;
+      margin-left: 10%;
+
+      &__name {
+        margin-bottom: 6%;
+      }
+    }
   }
 }
