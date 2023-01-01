@@ -153,4 +153,10 @@
     outline: 0.25em var(--color-focus-indicator) dashed;
     outline-offset: 0.25rem;
   }
+
+  @include small {
+    width: 65%;
+    margin-left: 2.5vw;
+    font-size: 1.2rem;
+  }
 }
