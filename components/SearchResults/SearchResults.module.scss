@@ -1,7 +1,15 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
 .SearchResults {
   display: flex;
   padding: 0 2vw 0 2vw;
   justify-content: space-evenly;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  @include small {
+    flex-direction: column;
+    align-items: center;
+  }
 }
