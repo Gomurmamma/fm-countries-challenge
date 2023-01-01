@@ -43,7 +43,9 @@
   }
 
   @include small {
-    margin-right: 1vw;
+    margin: 0;
+    padding: 0;
+
     &__text {
       font-size: 1.2rem;
     }

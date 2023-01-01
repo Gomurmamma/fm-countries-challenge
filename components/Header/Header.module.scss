@@ -11,22 +11,11 @@
 
   background-color: var(--color-element-primary);
 
-  @include small {
-    align-items: center;
-    justify-content: space-between;
-    padding: 1vw;
-  }
-
   &__heading {
     font-weight: 800;
     font-size: 2rem;
 
     margin-left: 4.75vw;
-
-    @include small {
-      font-size: 1.4rem;
-      margin-left: 0;
-    }
 
     &:link,
     &:visited {
@@ -50,6 +39,19 @@
       /* keyboard navigators */
       outline: 0.25em var(--color-focus-indicator) dashed;
       outline-offset: 0.25rem;
+    }
+  }
+
+  @include small {
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vh 4vw;
+
+    &__heading {
+      @include small {
+        font-size: 1.2rem;
+        margin: 0 0;
+      }
     }
   }
 }
