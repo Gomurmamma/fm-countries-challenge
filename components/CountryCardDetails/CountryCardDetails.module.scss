@@ -178,6 +178,12 @@
     }
   }
 
+  @include tablet-lg {
+    &__imageFrame {
+      height: 40%;
+    }
+  }
+
   @include desktop-sm {
     &__textContent {
       &__name {
