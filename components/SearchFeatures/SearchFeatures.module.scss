@@ -166,7 +166,7 @@
     font-size: 1.2rem;
   }
 
-  @include tablet {
+  @include mobile-lg {
     margin-bottom: 5vh;
   }
 }
