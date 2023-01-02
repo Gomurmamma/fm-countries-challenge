@@ -182,6 +182,15 @@
     &__imageFrame {
       height: 40%;
     }
+
+    &__textcontent {
+      font-size: 1.6rem;
+
+      &__name {
+        font-size: 3rem;
+        margin: 5vh 0;
+      }
+    }
   }
 
   @include desktop-sm {
