@@ -12,4 +12,8 @@
     flex-direction: column;
     align-items: center;
   }
+
+  @include desktop-sm {
+    flex-direction: row;
+  }
 }
