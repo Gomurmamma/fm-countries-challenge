@@ -98,5 +98,15 @@
     &__imageFrame {
       height: 25rem;
     }
+
+    &__textcontent {
+      &__name {
+        font-size: 3rem;
+      }
+
+      &__info {
+        font-size: 2rem;
+      }
+    }
   }
 }
