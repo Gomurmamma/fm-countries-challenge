@@ -90,6 +90,11 @@
     &__imageFrame {
       height: 20rem;
     }
+
+    &__textcontent {
+      margin-top: 10%;
+      margin-left: 10%;
+    }
   }
 
   @include tablet-lg {
