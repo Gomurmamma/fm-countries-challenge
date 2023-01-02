@@ -145,4 +145,8 @@
       height: 22rem;
     }
   }
+
+  @include desktop-md {
+    height: min(50vh, 50rem);
+  }
 }
