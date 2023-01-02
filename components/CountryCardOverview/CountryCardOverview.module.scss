@@ -112,7 +112,7 @@
   }
 
   @include tablet-lg {
-    height: 45vh;
+    height: 65vh;
 
     &__imageFrame {
       height: 25rem;
@@ -120,11 +120,11 @@
 
     &__textcontent {
       &__name {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
 
       &__info {
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
     }
   }
