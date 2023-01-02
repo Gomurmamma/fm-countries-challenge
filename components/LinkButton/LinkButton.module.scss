@@ -64,4 +64,8 @@
       font-size: 2.2rem;
     }
   }
+
+  @include desktop {
+    width: 17vw;
+  }
 }

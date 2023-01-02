@@ -211,4 +211,24 @@
       }
     }
   }
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85vw;
+
+    &__imageFrame {
+      height: 35%;
+      width: 30%;
+    }
+
+    &__textcontent {
+      width: 45%;
+
+      &__info {
+        flex-direction: row;
+        width: 45%;
+      }
+    }
+  }
 }
