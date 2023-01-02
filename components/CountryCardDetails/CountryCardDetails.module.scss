@@ -141,7 +141,10 @@
 
         &__nav {
           display: flex;
-          width: 100%;
+          justify-content: center;
+          align-items: center;
+          width: 120%;
+          margin-left: 2%;
         }
       }
 
