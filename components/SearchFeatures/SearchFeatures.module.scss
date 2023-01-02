@@ -9,6 +9,10 @@
 
   background-color: var(--color-bg-primary);
   margin-top: 2.5vh;
+
+  @include desktop {
+    align-items: center;
+  }
 }
 
 .SearchInput {
