@@ -85,7 +85,7 @@
   }
 
   @include tablet {
-    height: 48vh;
+    height: min(48vh, 42rem);
 
     &__imageFrame {
       height: 20rem;
