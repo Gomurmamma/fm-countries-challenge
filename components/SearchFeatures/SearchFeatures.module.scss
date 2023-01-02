@@ -140,6 +140,12 @@
       width: 45%;
     }
   }
+
+  @include desktop-lg {
+    &__inputContainer {
+      width: 37%;
+    }
+  }
 }
 
 .SearchFilter {
