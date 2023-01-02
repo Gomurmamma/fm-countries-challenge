@@ -26,6 +26,10 @@
     @include small {
       width: 100%;
       height: 25%;
+
+      @media screen and (min-height: 560px) {
+        height: 20%;
+      }
     }
   }
 
@@ -120,6 +124,10 @@
       &__name {
         font-size: 2.2rem;
         margin: 8vh 0 5vh;
+
+        @media screen and (min-height: 560px) {
+          margin-top: 1vh;
+        }
       }
 
       &__info {
@@ -160,6 +168,12 @@
       &__inline {
         width: 100%;
         margin-bottom: 5vh;
+      }
+    }
+
+    @include mobile {
+      &__name {
+        margin-top: 1vh;
       }
     }
   }
