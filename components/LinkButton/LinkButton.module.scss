@@ -18,6 +18,11 @@
   -webkit-box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.35);
 
+  &__html {
+    font-size: 2rem;
+    width: 20%;
+  }
+
   &:hover {
     cursor: pointer;
     transform: scale(1.05);

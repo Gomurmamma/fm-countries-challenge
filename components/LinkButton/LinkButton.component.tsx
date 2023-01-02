@@ -18,7 +18,11 @@ const LinkButton = ({ buttonprops, onClick }: ButtonProps) => {
       onClick={onClick}
       title={buttonprops.tooltip}
     >
-      <>{buttonprops.html}</>
+      {buttonprops.html ? (
+        <span className={style.LinkButton__html}>{buttonprops.html}</span>
+      ) : (
+        ""
+      )}
       {buttonprops.title.replace(/[a-z](?=[A-Z])/gm, "$& ")}
     </button>
   );
