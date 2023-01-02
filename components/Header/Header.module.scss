@@ -48,10 +48,14 @@
     padding: 4vh 4vw;
 
     &__heading {
-      @include small {
-        font-size: 1.2rem;
-        margin: 0 0;
-      }
+      font-size: 1.2rem;
+      margin: 0 0;
+    }
+  }
+
+  @include tablet {
+    &__heading {
+      font-size: 1.6rem;
     }
   }
 }
