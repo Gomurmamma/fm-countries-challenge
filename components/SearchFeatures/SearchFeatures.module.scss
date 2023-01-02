@@ -10,7 +10,7 @@
   background-color: var(--color-bg-primary);
   margin-top: 2.5vh;
 
-  @include desktop {
+  @include desktop-sm {
     align-items: center;
   }
 }
@@ -121,11 +121,16 @@
   }
 
   @include desktop-sm {
+    width: 90%;
     flex-direction: row;
+
+    &__inputContainer {
+      width: 70%;
+    }
   }
 
   @include desktop {
-    width: 80vw;
+    justify-content: space-between;
   }
 }
 
