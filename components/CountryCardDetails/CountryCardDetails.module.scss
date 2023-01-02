@@ -214,25 +214,29 @@
 
   @include desktop {
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
     width: 85vw;
-    height: 85vh;
+    height: 65vh;
+    margin: 0 6vw;
 
     &__imageFrame {
-      height: 35%;
-      width: 30%;
+      height: 45%;
+      width: 55%;
+      margin-right: 8%;
     }
 
     &__textcontent {
-      width: 55%;
+      width: 30%;
+      height: 60%;
 
       &__name {
         margin: 3vh 0;
+        font-size: 2rem;
       }
 
       &__info {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
 
         flex-direction: row;
         width: 100%;
@@ -245,6 +249,17 @@
 
         &__detail {
           margin-bottom: 2vh;
+        }
+      }
+
+      &__borders {
+        width: 100%;
+        align-items: flex-start;
+        &__title {
+          font-size: 1.2rem;
+        }
+        &__nav {
+          width: 115%;
         }
       }
     }

@@ -15,4 +15,10 @@
       margin: 6vh 8vw 8vh;
     }
   }
+
+  @include desktop {
+    &__navBtn {
+      margin-bottom: 2vh;
+    }
+  }
 }
