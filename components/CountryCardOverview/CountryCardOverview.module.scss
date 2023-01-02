@@ -128,4 +128,13 @@
       }
     }
   }
+
+  @include desktop-sm {
+    height: 42vh;
+    width: 40vw;
+
+    &__imageFrame {
+      height: 18rem;
+    }
+  }
 }
