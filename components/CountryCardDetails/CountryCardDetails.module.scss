@@ -187,7 +187,9 @@
     }
 
     &__textcontent {
-      font-size: 1.6rem;
+      &__info {
+        font-size: 1.6rem;
+      }
 
       &__name {
         font-size: 3rem;
@@ -197,9 +199,15 @@
   }
 
   @include desktop-sm {
-    &__textContent {
+    &__imageFrame {
+      height: 40%;
+    }
+    &__textcontent {
+      &__info {
+        font-size: 1.8rem;
+      }
       &__name {
-        font-size: 2rem;
+        font-size: 3rem;
       }
     }
   }
