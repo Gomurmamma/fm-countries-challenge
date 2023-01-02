@@ -56,4 +56,10 @@
       font-size: 1.4rem;
     }
   }
+
+  @include desktop-sm {
+    &__text {
+      font-size: 1.6rem;
+    }
+  }
 }
