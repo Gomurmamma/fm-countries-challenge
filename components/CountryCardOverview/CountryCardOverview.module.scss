@@ -79,4 +79,8 @@
   @include mobile {
     height: min(35rem, 50vh);
   }
+
+  @include mobile-lg {
+    height: min(55vh, 35rem);
+  }
 }
