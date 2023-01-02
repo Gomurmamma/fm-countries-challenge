@@ -83,4 +83,12 @@
   @include mobile-lg {
     height: min(55vh, 35rem);
   }
+
+  @include tablet {
+    height: 48vh;
+
+    &__imageFrame {
+      height: 20rem;
+    }
+  }
 }
