@@ -153,4 +153,27 @@
       height: 18rem;
     }
   }
+
+  @include desktop-lg {
+    width: 18vw;
+    height: min(50vh, 38rem);
+
+    &__imageFrame {
+      height: 20rem;
+    }
+
+    &__textcontent {
+      margin-top: 2vh;
+      margin-left: 2.5vw;
+
+      &__name {
+        font-size: 2rem;
+        margin-bottom: 1.5vh;
+      }
+
+      &__info {
+        font-size: 1.6rem;
+      }
+    }
+  }
 }
