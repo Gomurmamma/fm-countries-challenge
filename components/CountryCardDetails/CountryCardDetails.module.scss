@@ -172,6 +172,8 @@
     }
 
     @include mobile {
+      height: 150vh;
+
       &__name {
         margin-top: 1vh;
       }
@@ -179,8 +181,9 @@
   }
 
   @include tablet-lg {
+    height: 160vh;
     &__imageFrame {
-      height: 40%;
+      height: 30%;
     }
 
     &__textcontent {
