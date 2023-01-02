@@ -112,7 +112,7 @@
   }
 
   @include tablet-lg {
-    height: 65vh;
+    height: min(65vh, 58rem);
 
     &__imageFrame {
       height: 25rem;
