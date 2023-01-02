@@ -137,4 +137,12 @@
       height: 18rem;
     }
   }
+
+  @include desktop {
+    height: min(45vh, 45rem);
+
+    &__imageFrame {
+      height: 22rem;
+    }
+  }
 }
