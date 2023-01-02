@@ -214,8 +214,10 @@
 
   @include desktop {
     flex-direction: row;
+    align-items: flex-start;
     justify-content: space-between;
     width: 85vw;
+    height: 85vh;
 
     &__imageFrame {
       height: 35%;
@@ -223,11 +225,27 @@
     }
 
     &__textcontent {
-      width: 45%;
+      width: 55%;
+
+      &__name {
+        margin: 3vh 0;
+      }
 
       &__info {
+        font-size: 1.4rem;
+
         flex-direction: row;
-        width: 45%;
+        width: 100%;
+        margin-bottom: 0;
+
+        & > li {
+          margin-right: 2vw;
+          margin-bottom: 0;
+        }
+
+        &__detail {
+          margin-bottom: 2vh;
+        }
       }
     }
   }
