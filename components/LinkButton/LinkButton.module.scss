@@ -56,4 +56,12 @@
       margin-left: 0.2rem;
     }
   }
+
+  @include mobile {
+    font-size: 1.4rem;
+
+    &__html {
+      font-size: 2.2rem;
+    }
+  }
 }
