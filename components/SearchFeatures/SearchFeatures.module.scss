@@ -119,6 +119,10 @@
   @include desktop-sm {
     flex-direction: row;
   }
+
+  @include desktop {
+    width: 80vw;
+  }
 }
 
 .SearchFilter {
