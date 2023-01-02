@@ -53,3 +53,9 @@
     @content;
   }
 }
+
+@mixin desktop-lg {
+  @media screen and (min-width: $bp-desktop-lg) {
+    @content;
+  }
+}
