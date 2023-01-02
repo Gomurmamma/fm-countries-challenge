@@ -58,4 +58,10 @@
       font-size: 1.6rem;
     }
   }
+
+  @include desktop-sm {
+    &__heading {
+      font-size: 1.8rem;
+    }
+  }
 }
