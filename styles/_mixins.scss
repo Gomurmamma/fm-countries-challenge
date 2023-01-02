@@ -23,3 +23,9 @@
     @content;
   }
 }
+
+@mixin tablet-md {
+  @media screen and (min-width: $bp-tablet-md) {
+    @content;
+  }
+}
