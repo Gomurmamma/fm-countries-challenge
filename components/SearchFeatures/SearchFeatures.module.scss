@@ -186,4 +186,8 @@
   @include mobile-lg {
     margin-bottom: 5vh;
   }
+
+  @include desktop-sm {
+    width: 30%;
+  }
 }
