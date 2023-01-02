@@ -123,9 +123,11 @@
   @include desktop-sm {
     width: 90%;
     flex-direction: row;
+    justify-content: space-between;
 
     &__inputContainer {
-      width: 70%;
+      width: 60%;
+      margin-left: 0;
     }
   }
 
