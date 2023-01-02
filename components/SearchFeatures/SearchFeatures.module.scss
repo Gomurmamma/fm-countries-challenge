@@ -198,4 +198,8 @@
   @include desktop-sm {
     width: 30%;
   }
+
+  @include desktop-md {
+    width: 22%;
+  }
 }
