@@ -177,4 +177,12 @@
       }
     }
   }
+
+  @include desktop-sm {
+    &__textContent {
+      &__name {
+        font-size: 2rem;
+      }
+    }
+  }
 }
