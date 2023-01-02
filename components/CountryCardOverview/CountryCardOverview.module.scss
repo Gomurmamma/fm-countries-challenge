@@ -56,7 +56,6 @@
   }
 
   @include small {
-    border: 2px solid aliceblue;
     width: 75%;
     height: 65vh;
 
@@ -75,5 +74,9 @@
         margin-bottom: 1.5vh;
       }
     }
+  }
+
+  @include mobile {
+    height: min(35rem, 50vh);
   }
 }
