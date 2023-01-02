@@ -99,6 +99,16 @@
 
   @include tablet-md {
     height: min(55vh, 50rem);
+
+    &__textcontent {
+      &__name {
+        font-size: 2rem;
+      }
+
+      &__info {
+        font-size: 1.4rem;
+      }
+    }
   }
 
   @include tablet-lg {
