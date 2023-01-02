@@ -134,6 +134,12 @@
   @include desktop {
     justify-content: space-between;
   }
+
+  @include desktop-md {
+    &__inputContainer {
+      width: 45%;
+    }
+  }
 }
 
 .SearchFilter {
