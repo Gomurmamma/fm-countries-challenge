@@ -115,6 +115,10 @@
       margin: 0 auto 5vh;
     }
   }
+
+  @include desktop-sm {
+    flex-direction: row;
+  }
 }
 
 .SearchFilter {
