@@ -97,6 +97,10 @@
     }
   }
 
+  @include tablet-md {
+    height: min(55vh, 50rem);
+  }
+
   @include tablet-lg {
     height: 45vh;
 
