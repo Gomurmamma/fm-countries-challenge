@@ -109,6 +109,12 @@
       margin: 0 auto 8vh;
     }
   }
+
+  @include tablet {
+    &__inputContainer {
+      margin: 0 auto 5vh;
+    }
+  }
 }
 
 .SearchFilter {
@@ -158,5 +164,9 @@
     width: 60%;
     margin: 0 0 7vh 2.5vw;
     font-size: 1.2rem;
+  }
+
+  @include tablet {
+    margin-bottom: 5vh;
   }
 }
