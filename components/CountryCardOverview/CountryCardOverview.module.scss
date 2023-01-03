@@ -147,6 +147,7 @@
   }
 
   @include desktop-md {
+    height: min(50vh, 50rem);
     width: 26vw;
 
     &__imageFrame {
