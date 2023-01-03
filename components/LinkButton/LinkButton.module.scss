@@ -77,6 +77,11 @@
     }
   }
 
+  @include desktop-sm {
+    font-size: 2rem;
+    height: 4vh;
+  }
+
   @include desktop {
     border: 1px solid red;
     width: min-content;
