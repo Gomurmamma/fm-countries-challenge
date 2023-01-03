@@ -136,6 +136,8 @@
   }
 
   @include desktop-md {
+    padding-left: 0;
+
     &__inputContainer {
       width: 45%;
     }
