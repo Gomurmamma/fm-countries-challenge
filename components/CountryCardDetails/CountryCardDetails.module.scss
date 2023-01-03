@@ -222,6 +222,7 @@
   }
 
   @include desktop-sm {
+    height: 140vh;
     &__imageFrame {
       height: min(40%, 40vh);
     }
