@@ -204,9 +204,9 @@
   }
 
   @include tablet-lg {
-    height: 160vh;
+    height: 140vh;
     &__imageFrame {
-      height: 30%;
+      height: max(40%, 40vh);
     }
 
     &__textcontent {
@@ -222,9 +222,11 @@
   }
 
   @include desktop-sm {
+    border: 1px solid rebeccapurple;
     height: 140vh;
+
     &__imageFrame {
-      height: min(40%, 40vh);
+      height: max(50%, 40vh);
     }
     &__textcontent {
       &__info {
