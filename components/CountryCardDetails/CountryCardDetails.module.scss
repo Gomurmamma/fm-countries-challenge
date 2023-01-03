@@ -227,13 +227,14 @@
     }
     &__textcontent {
       &__info {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       &__name {
         font-size: 4rem;
       }
 
       &__borders {
+        font-size: 2rem;
         &__nav {
           margin-left: 0;
           justify-content: flex-start;
