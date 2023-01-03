@@ -223,7 +223,7 @@
 
   @include desktop-sm {
     &__imageFrame {
-      height: 40%;
+      height: min(40%, 40vh);
     }
     &__textcontent {
       &__info {
