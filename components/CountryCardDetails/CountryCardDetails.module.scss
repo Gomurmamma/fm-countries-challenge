@@ -306,12 +306,26 @@
 
   @include desktop-md {
     border: 1px solid red;
+
+    &__imageFrame {
+      border: 1px solid gold;
+      height: 65%;
+    }
     &__textcontent {
       &__name {
         font-size: 2.5rem;
       }
       &__info {
         font-size: 1.2rem;
+      }
+
+      &__borders {
+        margin-right: 2vw;
+        width: 110%;
+        &__nav {
+          width: 140%;
+          margin-left: 5%;
+        }
       }
     }
   }

@@ -83,7 +83,6 @@
   }
 
   @include desktop {
-    border: 1px solid red;
     width: min-content;
     margin: 0.5rem 1rem;
     padding: 0.75rem 1rem;
@@ -94,6 +93,14 @@
   }
 
   @include desktop-md {
-    border: 1px solid blue;
+    margin: 0.25rem 0.5rem;
+    &__html {
+      height: min-content;
+      margin-top: -1vh;
+    }
+
+    &__text {
+      margin-top: -0.6vh;
+    }
   }
 }
