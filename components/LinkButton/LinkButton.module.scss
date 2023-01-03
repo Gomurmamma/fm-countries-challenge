@@ -57,20 +57,20 @@
     margin-right: 0.2rem;
 
     &:not(:first-child) {
-      margin-left: 0.2rem;
+      margin-left: 0.2vw;
     }
   }
 
   @include mobile {
     display: flex;
     justify-content: center;
-    margin: 0;
-    width: max(20%, 20vw);
+
     font-size: 1.4rem;
+    margin-right: 0.5rem;
 
     &__html {
       font-size: 2.2rem;
-      margin-right: 1vw;
+      margin-right: 0.5vw;
       padding-bottom: 0.5vw;
       width: min-content;
     }
