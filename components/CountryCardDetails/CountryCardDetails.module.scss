@@ -67,6 +67,10 @@
           width: 100%;
           margin-bottom: 6vh;
         }
+
+        @include mobile {
+          margin-bottom: 3vh;
+        }
       }
 
       &__detail {
@@ -190,6 +194,12 @@
           margin-left: 6%;
         }
       }
+    }
+  }
+
+  @include mobile {
+    &__imageFrame {
+      height: 32%;
     }
   }
 
