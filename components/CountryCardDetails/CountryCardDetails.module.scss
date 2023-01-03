@@ -114,6 +114,13 @@
       &__title {
         font-weight: 600;
       }
+
+      &__button {
+        &:link,
+        &visited {
+          text-decoration: none;
+        }
+      }
     }
 
     @include small {
