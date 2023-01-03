@@ -313,12 +313,17 @@
       width: 50%;
     }
     &__textcontent {
-      width: 40%;
+      width: 42%;
       &__name {
         font-size: 2.5rem;
       }
       &__info {
+        width: 110%;
         font-size: 1.2rem;
+
+        &__detail {
+          margin-bottom: 1.25vh;
+        }
       }
 
       &__borders {
