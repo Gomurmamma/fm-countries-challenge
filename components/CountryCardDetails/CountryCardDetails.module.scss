@@ -255,6 +255,7 @@
       &__borders {
         width: 100%;
         align-items: flex-start;
+        flex-direction: row;
         &__title {
           font-size: 1.2rem;
         }
