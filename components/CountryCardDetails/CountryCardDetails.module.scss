@@ -266,12 +266,33 @@
   }
 
   @include desktop-md {
+    border: 1px solid red;
     &__textcontent {
       &__name {
         font-size: 2.5rem;
       }
       &__info {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  @include desktop-lg {
+    border: 1px solid blue;
+    margin: 0 8vw;
+
+    &__imageFrame {
+      height: 70%;
+      width: 60%;
+    }
+
+    &__textcontent {
+      height: 75%;
+      &__name {
+        font-size: 3rem;
+      }
+      &__info {
+        font-size: 1.6rem;
       }
     }
   }
