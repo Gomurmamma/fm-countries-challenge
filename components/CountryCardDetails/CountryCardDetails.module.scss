@@ -209,6 +209,17 @@
       &__name {
         font-size: 3rem;
       }
+
+      &__borders {
+        &__nav {
+          margin-left: 0;
+          justify-content: flex-start;
+
+          & > * {
+            margin-right: 1vw;
+          }
+        }
+      }
     }
   }
 
@@ -256,10 +267,12 @@
         width: 100%;
         align-items: flex-start;
         flex-direction: row;
+
         &__title {
           font-size: 1.2rem;
         }
         &__nav {
+          flex-wrap: wrap;
           width: 115%;
         }
       }

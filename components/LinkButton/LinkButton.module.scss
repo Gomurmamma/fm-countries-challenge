@@ -23,6 +23,10 @@
     width: 20%;
   }
 
+  &__text {
+    margin: auto auto;
+  }
+
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
@@ -58,20 +62,30 @@
   }
 
   @include mobile {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: max(20%, 20vw);
     font-size: 1.4rem;
 
     &__html {
       font-size: 2.2rem;
+      margin-right: 1vw;
+      padding-bottom: 0.5vw;
+      width: min-content;
     }
   }
 
   @include desktop {
+    border: 1px solid red;
     font-size: 1.2rem;
-    width: 10vw;
+    width: min-content;
+    margin: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
   }
 
   @include desktop-md {
+    border: 1px solid blue;
     font-size: 1.4rem;
-    width: 10vw;
   }
 }
