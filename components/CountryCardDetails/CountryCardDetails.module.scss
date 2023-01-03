@@ -290,11 +290,13 @@
 
       &__borders {
         width: 100%;
-        align-items: flex-start;
+
         flex-direction: row;
 
         &__title {
           font-size: 1.2rem;
+          margin-top: auto;
+          margin-bottom: auto;
         }
         &__nav {
           flex-wrap: wrap;
@@ -305,8 +307,6 @@
   }
 
   @include desktop-md {
-    border: 1px solid red;
-
     &__imageFrame {
       height: 65%;
       width: 50%;
