@@ -79,7 +79,7 @@
 
   @include desktop-sm {
     font-size: 2rem;
-    height: 4vh;
+    height: min-content;
   }
 
   @include desktop {
@@ -94,14 +94,15 @@
 
   @include desktop-md {
     margin: 0.25rem 0.15rem;
+
     &__html {
       height: min-content;
-      margin-top: -1.25vh;
-      margin-right: 1vw;
+      margin: 1vh 1.5vw auto;
+      font-size: 2rem;
     }
 
     &__text {
-      margin: -0.5vh 0.5vw auto;
+      margin: auto 0.5vw;
     }
   }
 }
