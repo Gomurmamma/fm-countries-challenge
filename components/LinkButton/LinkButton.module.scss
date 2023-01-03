@@ -97,10 +97,11 @@
     &__html {
       height: min-content;
       margin-top: -1vh;
+      margin-right: 1vw;
     }
 
     &__text {
-      margin-top: -0.6vh;
+      margin: -0.5vh 0.5vw auto;
     }
   }
 }
