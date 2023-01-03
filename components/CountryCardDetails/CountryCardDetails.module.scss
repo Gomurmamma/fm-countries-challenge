@@ -251,6 +251,7 @@
   }
 
   @include desktop {
+    border: 1px solid blue;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
@@ -259,9 +260,9 @@
     margin: 0 8vw;
 
     &__imageFrame {
-      height: 45%;
-      width: 55%;
-      margin-right: 8%;
+      height: 55%;
+      width: 65%;
+      margin-right: 5%;
     }
 
     &__textcontent {
