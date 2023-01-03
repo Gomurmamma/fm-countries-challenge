@@ -249,11 +249,11 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
             </li>
           </ul>
           <div className={style.CountryCardDetails__textcontent__borders}>
-            <p
+            <span
               className={style.CountryCardDetails__textcontent__borders__title}
             >
               Border Countries:
-            </p>
+            </span>
             {borderCountries ? (
               <nav
                 className={style.CountryCardDetails__textcontent__borders__nav}

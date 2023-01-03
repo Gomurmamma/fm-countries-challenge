@@ -308,7 +308,6 @@
     border: 1px solid red;
 
     &__imageFrame {
-      border: 1px solid gold;
       height: 65%;
       width: 50%;
     }
@@ -322,11 +321,12 @@
         font-size: 1.2rem;
 
         &__detail {
-          margin-bottom: 1.25vh;
+          margin-bottom: 1vh;
         }
       }
 
       &__borders {
+        margin-top: 4vh;
         margin-right: 2vw;
         width: 110%;
         &__nav {
