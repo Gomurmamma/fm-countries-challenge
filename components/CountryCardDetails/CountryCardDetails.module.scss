@@ -222,7 +222,6 @@
   }
 
   @include desktop-sm {
-    border: 1px solid rebeccapurple;
     height: 140vh;
 
     &__imageFrame {
@@ -258,7 +257,6 @@
   }
 
   @include desktop {
-    border: 1px solid blue;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
@@ -267,9 +265,9 @@
     margin: 0 8vw;
 
     &__imageFrame {
-      height: 75%;
-      width: 55%;
-      margin-right: 5%;
+      height: 60%;
+      width: 65%;
+      margin-right: 3%;
     }
 
     &__textcontent {
@@ -300,15 +298,16 @@
 
       &__borders {
         margin-top: 5vh;
+
         width: 100%;
 
-        flex-direction: row;
+        flex-direction: column;
 
         &__title {
           min-width: 11rem;
           font-size: 1.2rem;
           margin-top: auto;
-          margin-bottom: auto;
+          margin-bottom: 1vh;
         }
         &__nav {
           justify-content: flex-start;
@@ -319,6 +318,7 @@
   }
 
   @include desktop-md {
+    border: 1px solid sandybrown;
     &__imageFrame {
       height: 65%;
       width: 50%;
