@@ -374,11 +374,19 @@
       }
       &__info {
         font-size: 1.6rem;
+
+        &__value {
+          margin-left: 0.5vw;
+        }
       }
       &__borders {
         &__title {
           font-size: 1.6rem;
           min-width: 14rem;
+        }
+
+        &__nav {
+          margin-left: 1%;
         }
       }
     }
