@@ -391,4 +391,13 @@
       }
     }
   }
+
+  @include desktop-full {
+    border: 1px solid salmon;
+    &__imageFrame {
+      height: 70%;
+      width: 55%;
+      margin-right: 6%;
+    }
+  }
 }

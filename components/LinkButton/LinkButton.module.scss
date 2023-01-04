@@ -110,4 +110,8 @@
       margin: 0.25vh 0.55vw auto;
     }
   }
+
+  @include desktop-full {
+    font-size: 1.4rem;
+  }
 }
