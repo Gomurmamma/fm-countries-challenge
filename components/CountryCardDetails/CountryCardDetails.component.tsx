@@ -33,12 +33,6 @@ type CardProps = {
 };
 
 function CountryCardDetails({ country, borderCountries }): JSX.Element {
-  console.log("4444 Here's country obj in detail component", country);
-  console.log(
-    "4444 Here's borderCountries in detail component",
-    borderCountries
-  );
-
   return (
     <>
       <figure className={style.CountryCardDetails}>
