@@ -310,7 +310,8 @@
           margin-bottom: auto;
         }
         &__nav {
-          width: 115%;
+          justify-content: flex-start;
+          width: 85%;
         }
       }
     }
