@@ -11,8 +11,6 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width" initial-scale="1" />
         <meta httpEquiv="X-UA-Compatible" content="IE-Edge" />
-
-        <title>Countries API - Tony Young</title>
       </Head>
       <Component {...pageProps} />
     </>

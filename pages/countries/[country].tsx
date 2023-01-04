@@ -2,18 +2,10 @@ import React from "react";
 import Header from "../../components/Header/Header.component";
 import CountrySection from "../../components/CountrySection/CountrySection.component";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import Head from "next/head";
 
 type currencyObj = {
   currency: {
-    name: string;
-  };
-};
-
-type languageObj = {
-  language: {
     name: string;
   };
 };
@@ -44,6 +36,16 @@ const ToggleButton = dynamic(
 function Country({ countryData, borderCountries }) {
   return (
     <>
+      <Head>
+        <title>
+          {`${countryData.country.name} - `}Countries API Challenge - Tony Young
+        </title>
+        <meta
+          name="description"
+          content={`Information on the country ${countryData.country.name}. This is a solution to the Front End Mentors.io challenge. Contact Tony Young for more info.`}
+          key="desc"
+        ></meta>
+      </Head>
       <Header heading="Where in the World?">
         <ToggleButton />
       </Header>
@@ -53,19 +55,13 @@ function Country({ countryData, borderCountries }) {
 }
 
 async function getCountry(param_id: string, name: string) {
-  console.log("&&&&&&& the name", name);
-
   const res = await fetch(
     `https://restcountries.com/v2/name/${name.match(/(?<=^)\S[a-z]*/g)}`
   );
 
   const data = await res.json();
 
-  console.log("getCountry response", data);
-
   if (data.length === 1) {
-    console.log("Only one result!", data[0]);
-
     const countryData = {
       country: {
         name: data[0].name,
@@ -85,29 +81,7 @@ async function getCountry(param_id: string, name: string) {
     return countryData;
   }
 
-  console.log("before the loop data", data);
-
   for (let i = 0; i < data.length; i++) {
-    console.log("matching loop: id", param_id);
-    console.log(
-      "native name match:",
-      data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
-    );
-    //console.log(
-    //  "matching loop name regex:",
-    //  data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
-    //);
-    console.log("name unedited for country:", data[i].name);
-    console.log("Check out altSpellings:", data[i].altSpellings);
-    //console.log(
-    //  "matching loop name regex:",
-    //  data[0].name.match(/(?<=^)\S[a-z]*/g)[0]
-    //);
-    //console.log(
-    //  "matching loop: name",
-    //  data[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "")
-    //);
-
     if (
       param_id ===
         data[i].nativeName.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, "") || // United States
@@ -148,15 +122,11 @@ async function getBorderCountryNames(country) {
   );
   const data = await res.json();
 
-  console.log("border countries response", data);
   return data;
 }
 
 export async function getServerSideProps(context) {
   let param_id = context.params.country;
-  console.log("Params ID is:", param_id);
-
-  console.log("Removing 'and':", param_id.replace(/(?<=d)and/gm, ""));
 
   let search_id = undefined;
 
@@ -175,25 +145,6 @@ export async function getServerSideProps(context) {
     search_id = param_id.replace(/(?:Republicofthe)/g, "");
   }
 
-  console.log("verifying search_id", search_id);
-  console.log("verifying param_id", param_id);
-
-  //let countryData: CardProps = {
-  //  country: {
-  //    name: "",
-  //    population: 0,
-  //    region: "",
-  //    capital: "",
-  //    flag: "",
-  //    nativeName: "",
-  //    subregion: "",
-  //    topLevelDomain: [],
-  //    currencies: [],
-  //    languages: [],
-  //  },
-  //};
-
-  //  TODO: Typing for countryResponse
   let countryResponse = undefined;
 
   let query_id = undefined;
@@ -201,20 +152,12 @@ export async function getServerSideProps(context) {
   // update query_id to param_id if search_id was never used
   search_id === undefined ? (query_id = param_id) : (query_id = search_id);
 
-  console.log("Final query ID:", query_id);
-  console.log("Final param_id:", param_id);
-
   const countryData = await getCountry(param_id, query_id);
 
   let borderCountries = undefined;
 
   if (countryData.country.borders) {
     borderCountries = await getBorderCountryNames(countryData);
-
-    console.log(
-      "Here are the bordering countries you asked for boss:",
-      borderCountries
-    );
 
     return {
       props: {
