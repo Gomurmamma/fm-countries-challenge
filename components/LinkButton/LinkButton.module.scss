@@ -104,4 +104,10 @@
       margin: auto 0.05vw;
     }
   }
+
+  @include desktop-lg {
+    &__html {
+      margin: 0.25vh 0.55vw auto;
+    }
+  }
 }
