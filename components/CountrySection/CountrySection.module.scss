@@ -21,4 +21,10 @@
       margin-bottom: 2vh;
     }
   }
+
+  @include desktop-md {
+    &__navBtn {
+      margin-left: 6vw;
+    }
+  }
 }
