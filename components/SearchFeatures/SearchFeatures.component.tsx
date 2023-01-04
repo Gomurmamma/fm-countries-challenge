@@ -5,15 +5,28 @@ import style from "./SearchFeatures.module.scss";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import SearchResults from "../SearchResults/SearchResults.component";
 
-const SearchFeatures: React.FC = () => {
+type Props = {
+  countriesData: Country[];
+};
+
+type Country = {
+  name: string;
+  population: number;
+  region: string;
+  capital: string;
+  flag: string;
+};
+
+const SearchFeatures: React.FC<Props> = ({ countriesData }: Props) => {
   // Value from Search input
   const [searchField, setSearchField] = useState("");
   // Unfiltered Country Data from API
-  const [countryResults, setCountryResults] = useState([]);
+  const [countryResults, setCountryResults] = useState(countriesData);
+
   // Region filter
   const [regionFilter, setRegionFilter] = useState("");
   // Filtered country data
-  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState(countriesData);
 
   // Data request
   const countrySearch = async (e) => {
@@ -53,21 +66,6 @@ const SearchFeatures: React.FC = () => {
   const handleRegionChange = (event) => {
     setRegionFilter(event.target.value);
   };
-
-  // Request data to display on first visit
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://restcountries.com/v2/all`);
-        setCountryResults(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   // Update display if new Search request or Filter applied
   useEffect(() => {

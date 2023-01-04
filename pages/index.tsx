@@ -4,6 +4,18 @@ import SearchFeatures from "../components/SearchFeatures/SearchFeatures.componen
 
 import dynamic from "next/dynamic";
 
+type Props = {
+  countriesData: Country[];
+};
+
+type Country = {
+  name: string;
+  population: number;
+  region: string;
+  capital: string;
+  flag: string;
+};
+
 const ToggleButton = dynamic(
   () => import("../components/ToggleButton/ToggleButton.component"),
   {
@@ -11,15 +23,21 @@ const ToggleButton = dynamic(
   }
 );
 
-const Homepage: React.FunctionComponent = () => {
+const Homepage: React.FunctionComponent = ({ countriesData }: Props) => {
   return (
     <>
       <Header heading="Where in the World?">
         <ToggleButton />
       </Header>
-      <SearchFeatures />
+      <SearchFeatures countriesData={countriesData} />
     </>
   );
 };
+export async function getServerSideProps(context) {
+  const res = await fetch("https://restcountries.com/v2/all");
+  const countriesData: Country[] = await res.json();
+
+  return { props: { countriesData } };
+}
 
 export default Homepage;
