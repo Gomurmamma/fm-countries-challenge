@@ -318,7 +318,6 @@
   }
 
   @include desktop-md {
-    border: 1px solid sandybrown;
     margin: 0 6vw;
     &__imageFrame {
       height: 55%;
@@ -360,15 +359,16 @@
 
   @include desktop-lg {
     border: 1px solid blue;
-    margin: 0 8vw;
+    width: 87%;
 
     &__imageFrame {
       height: 70%;
       width: 60%;
+      margin-right: 7%;
     }
 
     &__textcontent {
-      height: 75%;
+      height: 65%;
       &__name {
         font-size: 3rem;
       }
