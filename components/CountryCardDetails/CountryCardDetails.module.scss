@@ -394,10 +394,21 @@
 
   @include desktop-full {
     border: 1px solid salmon;
+    height: 60vh;
 
     &__imageFrame {
       height: 70%;
       width: 50%;
+      margin-right: 6%;
+    }
+  }
+
+  @include desktop-design {
+    border: 1px solid tan;
+
+    &__imageFrame {
+      height: 70%;
+      width: 42%;
       margin-right: 6%;
     }
   }
