@@ -405,11 +405,16 @@
 
   @include desktop-design {
     border: 1px solid tan;
+    height: 50vh;
 
     &__imageFrame {
-      height: 70%;
+      height: 80%;
       width: 42%;
-      margin-right: 6%;
+      margin-right: 10%;
+    }
+
+    &__textcontent {
+      height: 70%;
     }
   }
 }
