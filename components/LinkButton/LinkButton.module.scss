@@ -78,18 +78,16 @@
   }
 
   @include desktop-sm {
-    font-size: 2rem;
+    font-size: 1.8rem;
     height: min-content;
+    width: 15vw;
+    padding: 0.25rem 0.5rem;
   }
 
   @include desktop {
     width: min-content;
     margin: 0.5rem 1rem;
-    padding: 0.75rem 1rem;
-  }
-
-  @include desktop-sm {
-    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
   }
 
   @include desktop-md {
