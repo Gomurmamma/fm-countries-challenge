@@ -93,14 +93,15 @@
 
   @include desktop-md {
     margin: 0.25rem 0.05rem;
+    padding: 0.5rem 1.5rem;
 
     &__html {
       height: min-content;
-      margin: 1vh 1.5vw auto;
+      margin: 0.25vh 1vw auto;
     }
 
     &__text {
-      margin: auto 0.25vw;
+      margin: auto 0.05vw;
     }
   }
 }
