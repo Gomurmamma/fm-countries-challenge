@@ -113,5 +113,9 @@
 
   @include desktop-full {
     font-size: 1.4rem;
+
+    &__html {
+      margin: 0.25vh 1.75vw auto;
+    }
   }
 }
