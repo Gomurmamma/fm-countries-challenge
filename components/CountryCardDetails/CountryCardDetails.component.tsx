@@ -32,45 +32,6 @@ type CardProps = {
   };
 };
 
-const borderCountries = async (borders: any[]) => {
-  console.log("the borders array", borders);
-
-  // Initialize borderCountries[]
-  let borderCountries: any[] = [];
-
-  // borders array reduced to first 3 items into borderCountries[]
-  for (let i = 0; i < 3; i++) {
-    borderCountries.push(borders[i]);
-  }
-
-  return borderCountries ? (
-    <ul role="list">
-      {borderCountries.map((country, i) =>
-        country ? (
-          <li key={i}>
-            <Link
-              href={`/countries/${country.replace(
-                /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
-                ""
-              )}`}
-            >
-              <LinkButton
-                buttonprops={{
-                  title: country.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g, ""),
-                }}
-              />
-            </Link>
-          </li>
-        ) : (
-          ""
-        )
-      )}
-    </ul>
-  ) : (
-    <></>
-  );
-};
-
 function CountryCardDetails({ country, borderCountries }): JSX.Element {
   console.log("4444 Here's country obj in detail component", country);
   console.log(
