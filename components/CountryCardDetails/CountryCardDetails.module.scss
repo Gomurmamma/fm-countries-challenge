@@ -237,7 +237,14 @@
       }
 
       &__borders {
+        width: 110%;
+
         font-size: 2rem;
+        flex-direction: row;
+
+        &__title {
+          min-width: 18rem;
+        }
         &__nav {
           margin-left: 0;
           justify-content: flex-start;
