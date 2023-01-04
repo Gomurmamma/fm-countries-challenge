@@ -338,8 +338,11 @@
       }
 
       &__borders {
+        flex-direction: row;
+
         &__title {
           min-width: 10rem;
+          margin: auto 0;
         }
         margin-top: 4vh;
         margin-right: 2vw;
