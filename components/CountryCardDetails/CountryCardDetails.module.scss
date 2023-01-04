@@ -375,6 +375,12 @@
       &__info {
         font-size: 1.6rem;
       }
+      &__borders {
+        &__title {
+          font-size: 1.6rem;
+          min-width: 14rem;
+        }
+      }
     }
   }
 }
