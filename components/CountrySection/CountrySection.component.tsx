@@ -2,7 +2,6 @@ import React from "react";
 import style from "./CountrySection.module.scss";
 import CountryCardDetails from "../CountryCardDetails/CountryCardDetails.component";
 import LinkButton from "../LinkButton/LinkButton.component";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 type currencyObj = {
@@ -34,12 +33,6 @@ type CardProps = {
 
 const CountrySection = (country) => {
   const router = useRouter();
-
-  console.log("2222222 Here country data in section", country);
-  console.log(
-    "2222222 Here BORDERcountries in section",
-    country.borderCountries
-  );
 
   return (
     <section className={style.CountrySection}>
