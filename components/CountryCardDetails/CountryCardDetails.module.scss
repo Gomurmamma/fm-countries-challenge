@@ -358,7 +358,6 @@
   }
 
   @include desktop-lg {
-    border: 1px solid blue;
     width: 87%;
 
     &__imageFrame {
@@ -393,7 +392,6 @@
   }
 
   @include desktop-full {
-    border: 1px solid salmon;
     height: 60vh;
 
     &__imageFrame {
@@ -404,7 +402,6 @@
   }
 
   @include desktop-design {
-    border: 1px solid tan;
     height: 50vh;
 
     &__imageFrame {
