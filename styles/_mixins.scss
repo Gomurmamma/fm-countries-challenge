@@ -59,3 +59,9 @@
     @content;
   }
 }
+
+@mixin desktop-full {
+  @media screen and (min-width: $bp-desktop-full) {
+    @content;
+  }
+}
