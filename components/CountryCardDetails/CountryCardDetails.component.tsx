@@ -216,7 +216,7 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
                 {borderCountries.slice(0, 3).map((country, i) => (
                   <Link
                     key={i}
-                    href={`/countries/${country.name.common.replace(
+                    href={`/countries/${country.name.common?.replace(
                       /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                       ""
                     )}`}
@@ -226,11 +226,11 @@ function CountryCardDetails({ country, borderCountries }): JSX.Element {
                   >
                     <LinkButton
                       buttonprops={{
-                        title: country.name.common.replace(
+                        title: country.name.common?.replace(
                           /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                           ""
                         ),
-                        tooltip: `Go to the ${country.name.common.replace(
+                        tooltip: `Go to the ${country.name.common?.replace(
                           /[.,\/#!$%\^&\*;:{}=\-_`~()\ ]/g,
                           ""
                         )} page`,

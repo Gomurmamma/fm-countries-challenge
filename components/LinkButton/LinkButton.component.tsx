@@ -24,7 +24,7 @@ const LinkButton = ({ buttonprops, onClick }: ButtonProps) => {
         ""
       )}
       <span className={style.LinkButton__text}>
-        {buttonprops.title.replace(/[a-z](?=[A-Z])/gm, "$& ")}
+        {buttonprops.title?.replace(/[a-z](?=[A-Z])/gm, "$& ")}
       </span>
     </button>
   );
