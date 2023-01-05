@@ -4,7 +4,7 @@ import style from "./Header.module.scss";
 
 type HeaderProps = {
   heading: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const Header: React.FunctionComponent<HeaderProps> = ({
