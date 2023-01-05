@@ -14,10 +14,10 @@ interface Country {
   flag: string;
 }
 
-function SearchResults(countries: CountryListProps) {
+function SearchResults({ countries }: CountryListProps) {
   return (
     <section className={style.SearchResults}>
-      {countries.countries.map((country, i) => (
+      {countries?.map((country, i) => (
         <CountryCardOverview key={i} country={country} />
       ))}
     </section>
