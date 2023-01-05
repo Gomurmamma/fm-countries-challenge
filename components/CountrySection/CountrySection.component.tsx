@@ -2,7 +2,7 @@ import React from "react";
 import style from "./CountrySection.module.scss";
 import CountryCardDetails from "../CountryCardDetails/CountryCardDetails.component";
 import LinkButton from "../LinkButton/LinkButton.component";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 type currencyObj = {
   currency: {
