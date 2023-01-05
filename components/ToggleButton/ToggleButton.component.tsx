@@ -21,6 +21,7 @@ const ToggleButton: React.FC = () => {
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"
+      role="button"
       className={style.togglebutton}
       onClick={() => setActiveTheme(inactiveTheme)}
     >

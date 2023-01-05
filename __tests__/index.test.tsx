@@ -7,4 +7,12 @@ describe("Home page", () => {
   it("renders without crashing", () => {
     expect(() => render(<Homepage />)).not.toThrow();
   });
+
+  it("renders a heading", () => {
+    render(<Homepage />);
+
+    const heading = screen.getByRole("heading");
+
+    expect(heading).toBeInTheDocument();
+  });
 });
