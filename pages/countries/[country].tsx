@@ -93,8 +93,6 @@ async function getCountry(param_id: string, name: string) {
       ) || // DR Congo: common name from v3.1 is in altSpellings from v2
       name === data[i].name // Congo, Republic of
     ) {
-      console.log("found it!", data[i]);
-
       const countryData = {
         country: {
           name: data[i].name,
