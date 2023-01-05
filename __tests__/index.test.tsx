@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import Homepage from "../pages/index";
 
 describe("Home page", () => {
-  it("renders a heading", () => {
+  it("renders without crashing", () => {
     expect(() => render(<Homepage />)).not.toThrow();
   });
 });
