@@ -5,10 +5,9 @@ import { useState, useEffect } from "react";
 
 const ToggleButton: React.FC = () => {
   const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
-  console.log(activeTheme);
+
   const inactiveTheme =
     activeTheme === "light" || activeTheme === undefined ? "dark" : "light";
-  console.log(inactiveTheme);
 
   // Set activeTheme on the body element via document obj
   useEffect(() => {
