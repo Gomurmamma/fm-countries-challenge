@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest",
+    "test:e2e": "playwright test",
+    "test:e2e:skipbuild": "SKIP_BUILD=1 playwright test"
   },
   "repository": {
     "type": "git",
@@ -23,11 +25,13 @@
   "dependencies": {
     "axios": "^1.2.1",
     "next": "^13.0.6",
+    "playwright": "^1.29.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.29.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/node": "^18.11.11",
