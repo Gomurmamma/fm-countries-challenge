@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 import style from "./SearchFeatures.module.scss";
 import { RxMagnifyingGlass } from "react-icons/rx";
@@ -35,16 +34,19 @@ const SearchFeatures: React.FC<Props> = ({ countriesData }: Props) => {
     try {
       // If no value in Search, return all countries on Enter
       if (!searchField) {
-        const response = await axios.get(`https://restcountries.com/v2/all`);
-        setCountryResults(response.data);
+        const response = await fetch(`https://restcountries.com/v2/all`);
+
+        const data = await response.json();
+        setCountryResults(data);
       }
 
       // Search contains value to query
-      const response = await axios.get(
+      const response = await fetch(
         `https://restcountries.com/v2/name/${searchField}`
       );
-      setCountryResults(response.data);
-      console.log(response.data);
+
+      const data = await response.json();
+      setCountryResults(data);
     } catch (error) {
       console.log(error);
     }
