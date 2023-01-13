@@ -2,6 +2,7 @@ import React from "react";
 import style from "./CountrySection.module.scss";
 import CountryCardDetails from "../CountryCardDetails/CountryCardDetails.component";
 import LinkButton from "../LinkButton/LinkButton.component";
+import BackButton from "../BackButton/BackButton.component";
 import { useRouter } from "next/navigation";
 
 type currencyObj = {
@@ -37,11 +38,11 @@ const CountrySection = (country) => {
   return (
     <section className={style.CountrySection}>
       <nav className={style.CountrySection__navBtn}>
-        <LinkButton
+        <BackButton
           buttonprops={{
-            title: "Back",
-            html: <>&#8592; </>,
+            title: "Back button",
             tooltip: "Go back to the previous page",
+            text: "Back",
           }}
           onClick={() => router.back()}
         />
