@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./CountrySection.module.scss";
 import CountryCardDetails from "../CountryCardDetails/CountryCardDetails.component";
-import LinkButton from "../LinkButton/LinkButton.component";
 import BackButton from "../BackButton/BackButton.component";
 import { useRouter } from "next/navigation";
 
