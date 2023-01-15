@@ -177,4 +177,9 @@
       }
     }
   }
+
+  @include desktop-design {
+    width: 20vw;
+    margin: 2vw;
+  }
 }
