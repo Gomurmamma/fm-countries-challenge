@@ -139,10 +139,10 @@
   }
 
   @include desktop {
-    height: min(45vh, 45rem);
+    height: min(50vh, 48rem);
 
     &__imageFrame {
-      height: 22rem;
+      height: 18rem;
     }
   }
 

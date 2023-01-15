@@ -49,6 +49,11 @@
       opacity: 1;
     }
 
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
     &:focus {
       outline: 0.1em var(--color-focus-indicator) solid;
       outline-offset: 0.1rem;
