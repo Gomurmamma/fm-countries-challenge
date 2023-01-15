@@ -73,5 +73,8 @@
 
   @include desktop-design {
     margin-right: 1.2vw;
+    &__text {
+      margin-right: 0.25vw;
+    }
   }
 }
