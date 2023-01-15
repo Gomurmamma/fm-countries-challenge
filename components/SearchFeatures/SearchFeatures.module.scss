@@ -148,6 +148,10 @@
       width: 37%;
     }
   }
+
+  @include desktop-design {
+    width: 91.5%;
+  }
 }
 
 .SearchFilter {
