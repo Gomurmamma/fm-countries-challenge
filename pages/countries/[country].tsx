@@ -143,8 +143,6 @@ export async function getServerSideProps(context) {
     search_id = param_id.replace(/(?:Republicofthe)/g, "");
   }
 
-  let countryResponse = undefined;
-
   let query_id = undefined;
 
   // update query_id to param_id if search_id was never used
