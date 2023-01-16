@@ -35,8 +35,6 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Live Demo](https://your-live-site-url.com)
-
 ## My process
 
 ### Built with
