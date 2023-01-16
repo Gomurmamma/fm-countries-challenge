@@ -18,18 +18,24 @@ Users should be able to:
 ![](./screenshot.jpg)
 
 ![](./Screenshots/desktop_home.jpg)
+
 ![](./Screenshots/desktop_country.jpg)
+
+![](./Screenshots/desktop_features.gif)
+
 ![](./Screenshots/mobile_home.jpg)
+
 ![](./Screenshots/mobile_country1.jpg)
+
 ![](./Screenshots/mobile_country2.jpg)
 
-- \*\*\*need to convert video files to gifs
-  Add files to /screenshot directory
+![](./Screenshots/mobile_features.gif)
+
+![](./Screenshots/responsive_design.gif)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live Demo](https://your-live-site-url.com)
 
 ## My process
 
@@ -117,13 +123,11 @@ Additionally I came across some great solutions for accessible focus & hover sta
 }
 ```
 
-The color theme switcher solution I came across was easy to implement and understand! With the right planning it was one of the easiest features to implement for the project and maintain without breaking. [Here’s a link to a theme toggle for Next.js from Rob Morieson](https://electricanimals.com/articles/next-js-dark-mode-toggle).
+The color theme switcher solution I came across was easy to build and understand! With the right planning it was one of the easiest features to implement for the project and maintain without breaking. [Here’s a link to a theme toggle for Next.js from Rob Morieson](https://electricanimals.com/articles/next-js-dark-mode-toggle).
 
 For the [country].ts page I defined different data requests within the getServerSideProps in order to retrieve all of the relevant data needed for the page. Information on the bordering countries required making a request to the updated API endpoint, and there were a few country names that required string manipulation in order to match the corresponding url param.
 
 ### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 - Continue working with TypeScript!
 - Improving SCSS styling, layout techniques.
