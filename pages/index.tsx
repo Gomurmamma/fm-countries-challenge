@@ -43,7 +43,9 @@ const Homepage: React.FunctionComponent = ({ countriesData }: Props) => {
   );
 };
 export async function getServerSideProps(context) {
-  const res = await fetch("https://restcountries.com/v2/all");
+  const res = await fetch(
+    "https://restcountries.com/v2/all?fields=name,population,region,capital,flag"
+  );
   const countriesData: Country[] = await res.json();
 
   return { props: { countriesData } };

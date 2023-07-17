@@ -18,7 +18,11 @@ function SearchResults({ countries }: CountryListProps) {
   return (
     <section className={style.SearchResults}>
       {countries?.map((country, i) => (
-        <CountryCardOverview key={i} country={country} />
+        <CountryCardOverview
+          key={i}
+          country={country}
+          lazy={i < 9 ? false : true}
+        />
       ))}
     </section>
   );

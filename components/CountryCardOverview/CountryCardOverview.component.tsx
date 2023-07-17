@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import style from "./CountryCardOverview.module.scss";
+import { useInView } from "react-intersection-observer";
 
 type CardProps = {
   country: {
@@ -11,9 +12,15 @@ type CardProps = {
     capital: string;
     flag: string;
   };
+  lazy: boolean;
 };
 
-function CountryCardOverview({ country }: CardProps) {
+function CountryCardOverview({ country, lazy }: CardProps) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "200px 0px",
+  });
+
   return (
     <figure
       className={style.CountryCardOverview}
@@ -26,13 +33,20 @@ function CountryCardOverview({ country }: CardProps) {
         )}`}
         className={style.CountryCardOverview__link}
       >
-        <div className={style.CountryCardOverview__imageFrame}>
-          <Image
-            className={style.CountryCardOverview__image}
-            alt={`Flag of ${country.name}`}
-            src={`${country.flag}`}
-            fill={true}
-          />
+        <div
+          className={style.CountryCardOverview__imageFrame}
+          ref={ref}
+          data-inview={inView}
+        >
+          {inView ? (
+            <Image
+              className={style.CountryCardOverview__image}
+              alt={`Flag of ${country.name}`}
+              src={`${country.flag}`}
+              fill={true}
+              priority={lazy ? false : true}
+            />
+          ) : null}
         </div>
         <figcaption className={style.CountryCardOverview__textcontent}>
           <h2 className={style.CountryCardOverview__textcontent__name}>
